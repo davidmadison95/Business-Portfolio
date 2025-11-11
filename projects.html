@@ -31,84 +31,35 @@
     </nav>
 
     <main class="container">
-        <h1 class="title">Featured Projects & AI Solutions</h1>
+        <h1 class="title">Featured Projects</h1>
 
         <div class="projects-grid">
-            <!-- OpsIntel360 Business Analytics Platform -->
+            <!-- AVOXI Billing Analysis Project - #1 PRIORITY -->
             <div class="project-card card">
                 <div class="project-content">
                     <div class="project-header">
-                        <h3>OpsIntel360 - Enterprise Business Analytics Platform</h3>
+                        <h3>AVOXI Telecommunications Billing Analysis</h3>
                     </div>
-                    <p>A production-ready, full-stack data analytics and forecasting platform providing actionable insights across Finance, Sales, Operations, HR, and IT departments. The platform combines advanced time-series forecasting, anomaly detection, and AI-generated recommendations into an interactive dashboard built for real-world business intelligence applications.</p>
-                    <h4>Key Features:</h4>
+                    <p>Analyzed three months of telecommunications billing data ($84K in revenue) to identify margin inefficiencies and provide actionable pricing recommendations. Through comprehensive analysis across 53 clients, 8 countries, and 5 vendors, identified opportunities to improve gross margin from 39.6% to 46.4%—representing $157K in potential annual profit improvement.</p>
+                    <h4>Business Impact:</h4>
                     <ul>
-                        <li>Multi-department analytics: Finance, Sales, Operations, HR, and IT support metrics</li>
-                        <li>Time-series forecasting with Facebook Prophet (configurable 3-12 month horizons)</li>
-                        <li>Dual anomaly detection: Isolation Forest and Z-Score methods with contextual explanations</li>
-                        <li>AI-powered business insights with severity classification and actionable recommendations</li>
-                        <li>Real-time KPI monitoring: Revenue, expenses, profit margins, conversion rates, delivery performance</li>
-                        <li>Interactive Streamlit dashboard with Plotly visualizations and multi-tab navigation</li>
-                        <li>Full ETL pipeline with SQLite database and SQLAlchemy ORM</li>
-                        <li>Docker containerization for production deployment</li>
-                        <li>Comprehensive model evaluation with RMSE, MAE, and MAPE metrics</li>
-                        <li>Synthetic data generation system for realistic business simulations</li>
+                        <li><strong>Improved profit margins by 6.8 percentage points</strong> through vendor routing optimization and strategic pricing adjustments</li>
+                        <li><strong>Identified $157K in annual profit opportunities</strong> across client base and geographic markets</li>
+                        <li>Analyzed profitability across multiple dimensions: clients, countries, carriers, and billing methods</li>
+                        <li>Provided executive-ready visualizations and scenario modeling for pricing strategy decisions</li>
+                        <li>Evaluated vendor efficiency to inform future contract negotiations and routing decisions</li>
                     </ul>
                     <div class="tags">
                         <span class="tag">Python</span>
-                        <span class="tag">Facebook Prophet</span>
-                        <span class="tag">Machine Learning</span>
-                        <span class="tag">Streamlit</span>
-                        <span class="tag">SQLite</span>
-                        <span class="tag">SQLAlchemy</span>
-                        <span class="tag">Plotly</span>
-                        <span class="tag">Scikit-learn</span>
-                        <span class="tag">Docker</span>
-                        <span class="tag">ETL Pipeline</span>
-                        <span class="tag">Time-Series Forecasting</span>
-                        <span class="tag">Anomaly Detection</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">Data Analysis</span>
+                        <span class="tag">Financial Analytics</span>
+                        <span class="tag">Data Visualization</span>
+                        <span class="tag">Excel</span>
                     </div>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/davidmadison95/OpsIntel360" target="_blank" class="btn btn-secondary">
-                        <i class="fab fa-github"></i> Source Code
-                    </a>
-                </div>
-            </div>
-
-            <!-- Fraud Detection with Explainable AI Project -->
-            <div class="project-card card">
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>Financial Fraud Detection with Explainable AI</h3>
-                    </div>
-                    <p>An enterprise-grade fraud detection system leveraging machine learning and explainable AI to identify fraudulent financial transactions while maintaining transparency and regulatory compliance. The system handles highly imbalanced datasets and provides both real-time and batch scoring capabilities through a production-ready REST API and interactive dashboard.</p>
-                    <h4>Key Features:</h4>
-                    <ul>
-                        <li>XGBoost classifier achieving 95%+ ROC-AUC with optimized handling of imbalanced data (1.5% fraud rate)</li>
-                        <li>SHAP (Shapley Additive exPlanations) for transparent, regulatory-compliant decision explanations</li>
-                        <li>Interactive Streamlit dashboard for batch processing, risk visualization, and threshold adjustment</li>
-                        <li>Production-ready Flask REST API with sub-second latency for real-time fraud scoring</li>
-                        <li>Comprehensive model evaluation: 70%+ recall at top 1%, 85%+ PR-AUC, F1-Score of 0.75+</li>
-                        <li>Docker containerization for seamless deployment and scalability</li>
-                        <li>Complete model card documentation addressing ethics, fairness, and limitations</li>
-                        <li>Jupyter notebooks for exploratory analysis, training, and SHAP deep dives</li>
-                    </ul>
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Machine Learning</span>
-                        <span class="tag">XGBoost</span>
-                        <span class="tag">SHAP</span>
-                        <span class="tag">Explainable AI</span>
-                        <span class="tag">Streamlit</span>
-                        <span class="tag">Flask API</span>
-                        <span class="tag">Docker</span>
-                        <span class="tag">scikit-learn</span>
-                        <span class="tag">Fraud Detection</span>
-                    </div>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/davidmadison95/fraud-detection-xai" target="_blank" class="btn btn-secondary">
+                    <a href="https://github.com/davidmadison95/avoxi-billing-analysis" target="_blank" class="btn btn-secondary">
                         <i class="fab fa-github"></i> Source Code
                     </a>
                 </div>
@@ -120,24 +71,22 @@
                     <div class="project-header">
                         <h3>Financial Performance & Forecasting Dashboard</h3>
                     </div>
-                    <p>A machine learning-powered financial analytics system that enables organizations to monitor financial health, analyze historical trends, and generate data-driven predictions for strategic planning. The dashboard processes monthly financial data and applies advanced time-series forecasting to predict future performance with quantified confidence intervals.</p>
-                    <h4>Key Features:</h4>
+                    <p>Built an interactive financial analytics system that monitors business health, analyzes historical trends, and generates 12-month revenue and expense forecasts. The dashboard processes 58 months of financial data to provide strategic insights for business planning and decision-making.</p>
+                    <h4>Key Capabilities:</h4>
                     <ul>
+                        <li><strong>Achieved 3.6% forecasting accuracy (MAPE)</strong> on 12-month revenue and expense predictions</li>
                         <li>Real-time KPI monitoring for revenue, expenses, profit margins, and growth rates</li>
-                        <li>Automated 12-month forecasting using Facebook Prophet with 3.6% MAPE accuracy</li>
-                        <li>Anomaly detection to identify unusual profit fluctuations requiring investigation</li>
-                        <li>Interactive Streamlit dashboard with dynamic filtering and Plotly visualizations</li>
-                        <li>Automated business insights with actionable recommendations</li>
-                        <li>Comprehensive analysis of 58 months of financial data</li>
+                        <li>Automated anomaly detection to flag unusual profit fluctuations requiring investigation</li>
+                        <li>Interactive dashboards with dynamic filtering and professional visualizations</li>
+                        <li>Automated business insights generation with actionable recommendations for leadership</li>
                     </ul>
                     <div class="tags">
                         <span class="tag">Python</span>
-                        <span class="tag">Machine Learning</span>
-                        <span class="tag">Facebook Prophet</span>
                         <span class="tag">Streamlit</span>
                         <span class="tag">Pandas</span>
-                        <span class="tag">Plotly</span>
-                        <span class="tag">Time-Series Forecasting</span>
+                        <span class="tag">Forecasting</span>
+                        <span class="tag">Data Visualization</span>
+                        <span class="tag">Business Intelligence</span>
                     </div>
                 </div>
                 <div class="project-links">
@@ -147,34 +96,69 @@
                 </div>
             </div>
 
-            <!-- AVOXI Billing Analysis Project -->
+            <!-- Financial Fraud Detection Project -->
             <div class="project-card card">
                 <div class="project-content">
                     <div class="project-header">
-                        <h3>AVOXI Telecommunications Billing Analysis</h3>
+                        <h3>Financial Fraud Detection System</h3>
                     </div>
-                    <p>Comprehensive telecommunications billing analysis examining $84,540 in revenue across three months to identify margin optimization opportunities and provide actionable pricing recommendations. The project analyzes data across 53 clients, 8 countries, and 5 vendors to improve profitability from 39.59% to a projected 46.37% gross margin.</p>
-                    <h4>Key Features:</h4>
+                    <p>An enterprise fraud detection system that identifies suspicious financial transactions while providing transparent, explainable results for compliance and investigation teams. Built to handle highly imbalanced datasets typical in real-world fraud scenarios, where fraudulent transactions represent less than 2% of total volume.</p>
+                    <h4>Key Capabilities:</h4>
                     <ul>
-                        <li>Multi-dimensional analysis across clients, countries, carriers, and vendors</li>
-                        <li>Margin optimization strategies with scenario modeling for pricing adjustments</li>
-                        <li>Vendor efficiency evaluation comparing billing methods and cost structures</li>
-                        <li>Data visualization with professional charts for executive reporting</li>
-                        <li>Geographic profitability analysis identifying low-margin regions</li>
-                        <li>Automated recommendations for cost reduction and revenue enhancement</li>
+                        <li><strong>95%+ detection accuracy</strong> identifying fraudulent transactions in imbalanced datasets (1.5% fraud rate)</li>
+                        <li><strong>Explainable results</strong> using SHAP analysis to show which factors contributed to each fraud detection—critical for regulatory compliance and investigation teams</li>
+                        <li>Interactive dashboard for fraud analysts to review flagged transactions, adjust risk thresholds, and visualize patterns</li>
+                        <li>Real-time scoring API with sub-second response time for transaction monitoring</li>
+                        <li>Batch processing capabilities for historical analysis and trend identification</li>
+                        <li>Production-ready deployment with Docker containerization</li>
+                        <li>Comprehensive model documentation addressing ethics, fairness, and limitations</li>
                     </ul>
                     <div class="tags">
                         <span class="tag">Python</span>
+                        <span class="tag">Fraud Analytics</span>
+                        <span class="tag">Risk Detection</span>
+                        <span class="tag">Streamlit</span>
                         <span class="tag">Data Analysis</span>
-                        <span class="tag">Pandas</span>
-                        <span class="tag">Matplotlib</span>
-                        <span class="tag">Seaborn</span>
-                        <span class="tag">Financial Analytics</span>
-                        <span class="tag">Excel Processing</span>
+                        <span class="tag">Compliance</span>
+                        <span class="tag">Docker</span>
                     </div>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/davidmadison95/avoxi-billing-analysis" target="_blank" class="btn btn-secondary">
+                    <a href="https://github.com/davidmadison95/fraud-detection-xai" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- OpsIntel360 Business Analytics Platform -->
+            <div class="project-card card">
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3>OpsIntel360 - Enterprise Business Analytics Platform</h3>
+                    </div>
+                    <p>A production-ready business intelligence platform providing actionable insights across Finance, Sales, Operations, HR, and IT departments. Combines forecasting, anomaly detection, and automated recommendations into an interactive dashboard designed for real-world business applications.</p>
+                    <h4>Key Capabilities:</h4>
+                    <ul>
+                        <li>Multi-department analytics supporting Finance, Sales, Operations, HR, and IT metrics</li>
+                        <li>Configurable forecasting with 3-12 month prediction horizons for strategic planning</li>
+                        <li>Automated anomaly detection with contextual explanations and severity classification</li>
+                        <li>Real-time KPI dashboards tracking revenue, expenses, margins, conversion rates, and operational metrics</li>
+                        <li>Interactive Streamlit interface with multi-tab navigation and professional visualizations</li>
+                        <li>Full ETL pipeline with database integration for production deployment</li>
+                        <li>Docker containerization for scalable enterprise deployment</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Business Intelligence</span>
+                        <span class="tag">Streamlit</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">ETL Pipeline</span>
+                        <span class="tag">Data Visualization</span>
+                        <span class="tag">Docker</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/davidmadison95/OpsIntel360" target="_blank" class="btn btn-secondary">
                         <i class="fab fa-github"></i> Source Code
                     </a>
                 </div>
@@ -186,31 +170,30 @@
                     <div class="project-header">
                         <h3>SmartResumeTool Web Application</h3>
                     </div>
-                    <p>An AI-powered resume analysis tool that enables users to upload resumes, compare them to job descriptions, and receive instant feedback on keyword match, ATS compatibility, and optimization recommendations for job applications.</p>
+                    <p>An AI-powered resume analysis tool that helps job seekers optimize their applications. Users upload resumes and job descriptions to receive instant feedback on keyword match, ATS compatibility, and specific recommendations for improvement.</p>
                     <h4>Key Features:</h4>
                     <ul>
-                        <li>AI-driven resume analysis and job description matching</li>
+                        <li>AI-driven resume analysis comparing content against job descriptions</li>
                         <li>PDF and DOCX file processing with content extraction</li>
-                        <li>Interactive scoring system with Chart.js visualizations</li>
-                        <li>ATS compatibility assessment and recommendations</li>
-                        <li>Real-time keyword analysis and optimization suggestions</li>
-                        <li>Responsive design with Tailwind CSS framework</li>
+                        <li>Interactive scoring visualizations showing match strength and gaps</li>
+                        <li>ATS compatibility assessment with specific optimization suggestions</li>
+                        <li>Real-time keyword analysis identifying missing critical skills</li>
+                        <li>Responsive full-stack design built with modern web technologies</li>
                     </ul>
                     <div class="tags">
-                        <span class="tag">AI/ML</span>
                         <span class="tag">JavaScript</span>
                         <span class="tag">HTML5</span>
                         <span class="tag">Tailwind CSS</span>
                         <span class="tag">Chart.js</span>
-                        <span class="tag">PDF.js</span>
-                        <span class="tag">Mammoth.js</span>
+                        <span class="tag">AI Integration</span>
+                        <span class="tag">Full-Stack</span>
                     </div>
                 </div>
                 <div class="project-links">
-                    <a href="https://davidmadison95.github.io/smart-resume-analyzer/" target="_blank" class="btn btn-primary">
+                    <a href="https://davidmadison95.github.io/smart-resume-tool/" target="_blank" class="btn btn-primary">
                         <i class="fas fa-external-link-alt"></i> Live Demo
                     </a>
-                    <a href="https://github.com/davidmadison95/smart-resume-analyzer" target="_blank" class="btn btn-secondary">
+                    <a href="https://github.com/davidmadison95/smart-resume-tool" target="_blank" class="btn btn-secondary">
                         <i class="fab fa-github"></i> Source Code
                     </a>
                 </div>
@@ -222,44 +205,13 @@
                     <div class="project-header">
                         <h3>Interactive Calendar Application</h3>
                     </div>
-                    <p>An intuitive calendar tool that allows users to organize and track events efficiently, providing interactive features for streamlined date selection, event reminders, and customization options.</p>
+                    <p>A productivity tool that enables users to organize and track events efficiently. Features interactive date selection, event reminders, and customization options with a responsive design that works across all devices.</p>
                     <h4>Key Features:</h4>
                     <ul>
-                        <li>User-friendly interface with seamless navigation</li>
-                        <li>Event scheduling and reminders with visual highlights</li>
-                        <li>Responsive design adaptable to all devices</li>
-                        <li>Integration of Python for backend functionalities and data handling</li>
-                    </ul>
-                    <div class="tags">
-                        <span class="tag">HTML5</span>
-                        <span class="tag">CSS3</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">Python</span>
-                    </div>
-                </div>
-                <div class="project-links">
-                    <a href="https://davidmadison95.github.io/calendar-app/" target="_blank" class="btn btn-primary">
-                        <i class="fas fa-external-link-alt"></i> Live Demo
-                    </a>
-                    <a href="https://github.com/davidmadison95/calendar-app" target="_blank" class="btn btn-secondary">
-                        <i class="fab fa-github"></i> Source Code
-                    </a>
-                </div>
-            </div>
-
-            <!-- Air Jordan Legacy Project -->
-            <div class="project-card card">
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>Air Jordan Legacy Website</h3>
-                    </div>
-                    <p>A comprehensive multi-page website showcasing Air Jordan sneakers' history and cultural impact, featuring brand evolution, iconic models, and their global influence on fashion and sports.</p>
-                    <h4>Key Features:</h4>
-                    <ul>
-                        <li>Dynamic comparison table of iconic models</li>
-                        <li>Interactive user feedback system</li>
-                        <li>Responsive design for all devices</li>
-                        <li>Cultural impact timeline</li>
+                        <li>Intuitive interface with seamless month-to-month navigation</li>
+                        <li>Event scheduling with visual highlights and reminder system</li>
+                        <li>Responsive design optimized for desktop, tablet, and mobile devices</li>
+                        <li>Backend data handling for persistent event storage</li>
                     </ul>
                     <div class="tags">
                         <span class="tag">HTML5</span>
@@ -269,109 +221,10 @@
                     </div>
                 </div>
                 <div class="project-links">
-                    <a href="https://davidmadison95.github.io/Air_Jordan_Website/" target="_blank" class="btn btn-primary">
+                    <a href="https://davidmadison95.github.io/calendar-app/" target="_blank" class="btn btn-primary">
                         <i class="fas fa-external-link-alt"></i> Live Demo
                     </a>
-                    <a href="https://github.com/davidmadison95/Air_Jordan_Website" target="_blank" class="btn btn-secondary">
-                        <i class="fab fa-github"></i> Source Code
-                    </a>
-                </div>
-            </div>
-
-            <!-- WebCraft Pro Project -->
-            <div class="project-card card">
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>WebCraft Pro</h3>
-                    </div>
-                    <p>A professional web solutions platform designed to empower businesses with custom web solutions. This project focuses on creating responsive, user-friendly websites that enhance online presence and drive business growth.</p>
-                    <h4>Key Features:</h4>
-                    <ul>
-                        <li>Custom website design showcase</li>
-                        <li>Content Management System integration</li>
-                        <li>E-commerce functionality</li>
-                        <li>Traffic analytics dashboard</li>
-                    </ul>
-                    <div class="tags">
-                        <span class="tag">Web Design</span>
-                        <span class="tag">CMS</span>
-                        <span class="tag">E-commerce</span>
-                        <span class="tag">Analytics</span>
-                    </div>
-                </div>
-                <div class="project-links">
-                    <a href="https://davidmadison95.github.io/WebCraft-Pro/" target="_blank" class="btn btn-primary">
-                        <i class="fas fa-external-link-alt"></i> Live Demo
-                    </a>
-                    <a href="https://github.com/davidmadison95/WebCraft-Pro" target="_blank" class="btn btn-secondary">
-                        <i class="fab fa-github"></i> Source Code
-                    </a>
-                </div>
-            </div>
-
-            <!-- Mini Roguelike Game Project -->
-            <div class="project-card card">
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>Mini Roguelike Game</h3>
-                    </div>
-                    <p>A browser-based mini roguelike game featuring turn-based combat, enemy AI, and procedural elements. Players navigate through a dungeon, battle enemies, collect health potions, and try to reach the exit while managing their health and turn count.</p>
-                    <h4>Key Features:</h4>
-                    <ul>
-                        <li>Turn-based movement and combat system</li>
-                        <li>Responsive design with mobile touch controls</li>
-                        <li>Simple AI for enemy movement and combat</li>
-                        <li>High score tracking with local storage</li>
-                        <li>Sound effects using Web Audio API</li>
-                        <li>Swipe gestures for mobile gameplay</li>
-                    </ul>
-                    <div class="tags">
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">HTML5</span>
-                        <span class="tag">CSS3</span>
-                        <span class="tag">Game Development</span>
-                        <span class="tag">Web Audio API</span>
-                    </div>
-                </div>
-                <div class="project-links">
-                    <a href="https://davidmadison95.github.io/RogueLike/" target="_blank" class="btn btn-primary">
-                        <i class="fas fa-external-link-alt"></i> Live Demo
-                    </a>
-                    <a href="https://github.com/davidmadison95/RogueLike" target="_blank" class="btn btn-secondary">
-                        <i class="fab fa-github"></i> Source Code
-                    </a>
-                </div>
-            </div>
-
-            <!-- Pong Game Project -->
-            <div class="project-card card">
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>Classic Pong Game</h3>
-                    </div>
-                    <p>A modern recreation of the classic Pong arcade game featuring two-player gameplay, dynamic ball acceleration, and a complete scoring system. Built with HTML5 Canvas for smooth gameplay and responsive controls.</p>
-                    <h4>Key Features:</h4>
-                    <ul>
-                        <li>Two-player local multiplayer with keyboard controls</li>
-                        <li>Dynamic ball speed acceleration during play</li>
-                        <li>First-to-10 scoring system with win detection</li>
-                        <li>Smooth paddle movement and ball physics</li>
-                        <li>Random ball spawn points and directions</li>
-                        <li>Clean, minimal retro-style design</li>
-                    </ul>
-                    <div class="tags">
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">HTML5 Canvas</span>
-                        <span class="tag">CSS3</span>
-                        <span class="tag">Game Development</span>
-                        <span class="tag">Animation</span>
-                    </div>
-                </div>
-                <div class="project-links">
-                    <a href="https://davidmadison95.github.io/Tennis-Pong/" target="_blank" class="btn btn-primary">
-                        <i class="fas fa-external-link-alt"></i> Live Demo
-                    </a>
-                    <a href="https://github.com/davidmadison95/Tennis-Pong" target="_blank" class="btn btn-secondary">
+                    <a href="https://github.com/davidmadison95/calendar-app" target="_blank" class="btn btn-secondary">
                         <i class="fab fa-github"></i> Source Code
                     </a>
                 </div>
