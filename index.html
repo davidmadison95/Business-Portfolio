@@ -8,17 +8,271 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        /* Keep hero clean, add matching sections below */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content-section {
+            background: #f9fafb;
+            padding: 4rem 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .content-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-header p {
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+        
+        /* About Card */
+        .about-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: 3rem;
+            margin-bottom: 4rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+        
+        .about-text p {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.95;
+        }
+        
+        /* Featured Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .project-preview {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .project-preview:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .project-preview-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1.5rem;
+            color: white;
+        }
+        
+        .project-preview-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        
+        .project-preview-body {
+            padding: 1.5rem;
+        }
+        
+        .project-preview-body p {
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .project-tag {
+            padding: 0.35rem 0.75rem;
+            background: #eff6ff;
+            color: #1e40af;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid #dbeafe;
+        }
+        
+        .view-all-btn {
+            text-align: center;
+        }
+        
+        .view-all-btn .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.05rem;
+        }
+        
+        /* Skills Preview */
+        .skills-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .skill-preview-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .skill-preview-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .skill-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        
+        .skill-icon i {
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .skill-preview-card h4 {
+            margin: 0 0 0.5rem 0;
+            color: #1f2937;
+            font-size: 1.1rem;
+        }
+        
+        .skill-preview-card p {
+            margin: 0;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .skills-preview-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-preview-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-card {
+                padding: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Page Transition -->
     <div class="page-transition"></div>
-
+    
     <!-- Particles Background -->
     <div id="particles-js" class="particles-container"></div>
     
     <!-- Background Pattern -->
     <div class="background-pattern"></div>
-
+    
     <nav class="navbar">
         <div class="nav-content">
             <a href="index.html" class="logo">David Madison</a>
@@ -33,7 +287,8 @@
             </div>
         </div>
     </nav>
-
+    
+    <!-- Hero Section (Keep as is) -->
     <main class="hero">
         <div class="container">
             <h1 class="title">
@@ -51,7 +306,142 @@
             </div>
         </div>
     </main>
-
+    
+    <!-- About Section -->
+    <section class="content-section">
+        <div class="content-container">
+            <div class="about-card">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Data Analyst with Real-World Impact</h3>
+                        <p>I'm a data analyst who bridges the gap between complex data and actionable business insights. Currently pursuing my Master's in Data Analytics while working as a Vote Execution Jr. Analyst at ISS STOXX, I specialize in turning raw data into strategic recommendations that drive results.</p>
+                        <p>With a background that spans military service, academic research, and corporate analytics, I bring a unique perspective to data analysis—combining technical expertise with real-world problem solving.</p>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-number">7+</span>
+                            <span class="stat-label">Featured Projects</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">87%</span>
+                            <span class="stat-label">ML Model Accuracy</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">$157K</span>
+                            <span class="stat-label">Profit Identified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Featured Projects -->
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>Recent work showcasing data analysis and machine learning expertise</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-preview">
+                    <div class="project-preview-header">
+                        <h3>Credit Risk Scoring ML System</h3>
+                    </div>
+                    <div class="project-preview-body">
+                        <p>Production-ready machine learning system achieving 87% F1 score for loan default prediction with SHAP explainability.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">XGBoost</span>
+                            <span class="project-tag">SHAP</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-preview">
+                    <div class="project-preview-header">
+                        <h3>AVOXI Billing Analysis</h3>
+                    </div>
+                    <div class="project-preview-body">
+                        <p>Analyzed $84K in telecom revenue to identify $157K in annual profit opportunities through margin optimization.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Pandas</span>
+                            <span class="project-tag">Financial Analytics</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-preview">
+                    <div class="project-preview-header">
+                        <h3>Financial Forecasting Dashboard</h3>
+                    </div>
+                    <div class="project-preview-body">
+                        <p>Interactive analytics system with 3.6% forecasting accuracy for 12-month revenue and expense predictions.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Streamlit</span>
+                            <span class="project-tag">Prophet</span>
+                            <span class="project-tag">BI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="view-all-btn">
+                <a href="projects.html" class="btn btn-primary">View All Projects</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Preview Section -->
+    <section class="content-section" style="background: white;">
+        <div class="content-container">
+            <div class="section-header">
+                <h2>Core Competencies</h2>
+                <p>Technical skills and tools I use to deliver results</p>
+            </div>
+            
+            <div class="skills-preview-grid">
+                <div class="skill-preview-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h4>Data Analysis</h4>
+                    <p>Excel, Power BI, Tableau, Statistical Analysis</p>
+                </div>
+                
+                <div class="skill-preview-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h4>Python</h4>
+                    <p>Pandas, NumPy, Matplotlib, Streamlit</p>
+                </div>
+                
+                <div class="skill-preview-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4>SQL & Databases</h4>
+                    <p>MySQL, MongoDB, Query Optimization</p>
+                </div>
+                
+                <div class="skill-preview-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4>Machine Learning</h4>
+                    <p>XGBoost, scikit-learn, SHAP, MLOps</p>
+                </div>
+            </div>
+            
+            <div class="view-all-btn" style="margin-top: 2.5rem;">
+                <a href="skills.html" class="btn btn-primary">View All Skills</a>
+            </div>
+        </div>
+    </section>
+    
     <script src="script.js"></script>
 </body>
 </html>
