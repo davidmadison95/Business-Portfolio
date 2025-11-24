@@ -7,6 +7,278 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        /* Clean Professional Skills Layout */
+        * {
+            box-sizing: border-box;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        .skill-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .skill-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1.75rem 2rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .skill-header i {
+            font-size: 1.5rem;
+        }
+        
+        .skill-header h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        .skill-body {
+            padding: 2rem;
+        }
+        
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: #f9fafb;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s ease;
+        }
+        
+        .skill-item:hover {
+            background: #eff6ff;
+            border-color: #667eea;
+        }
+        
+        .skill-item i {
+            color: #667eea;
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .skill-item span {
+            color: #374151;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .tools-section {
+            grid-column: 1 / -1;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .tools-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1.75rem 2rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .tools-header i {
+            font-size: 1.5rem;
+        }
+        
+        .tools-header h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        .tools-body {
+            padding: 2.5rem;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .tool-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f9fafb;
+            border-radius: 10px;
+            border: 2px solid #e5e7eb;
+            transition: all 0.2s ease;
+        }
+        
+        .tool-card:hover {
+            background: #eff6ff;
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .tool-card i {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 0.75rem;
+        }
+        
+        .tool-card h3 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+        
+        .tool-card p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+        
+        .expertise-section {
+            grid-column: 1 / -1;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .expertise-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1.75rem 2rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .expertise-header i {
+            font-size: 1.5rem;
+        }
+        
+        .expertise-header h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        .expertise-body {
+            padding: 2.5rem;
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .expertise-item {
+            padding: 1.5rem;
+            background: #f9fafb;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .expertise-item h3 {
+            margin: 0 0 1rem 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        
+        .expertise-item ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .expertise-item li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #4b5563;
+            font-size: 0.9rem;
+        }
+        
+        .expertise-item li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 1200px) {
+            .expertise-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+                gap: 2rem;
+            }
+            
+            .skill-header {
+                padding: 1.5rem;
+            }
+            
+            .skill-body {
+                padding: 1.5rem;
+            }
+            
+            .tools-body {
+                padding: 1.5rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .expertise-body {
+                padding: 1.5rem;
+            }
+            
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Page Transition -->
@@ -32,576 +304,366 @@
 
     <main class="container">
         <h1 class="title">Technical Skills & Expertise</h1>
-        
+
         <div class="skills-grid">
             <!-- Data Analysis & Business Intelligence -->
-            <div class="card skills-card">
-                <h2><i class="fas fa-chart-bar"></i> Data Analysis & Business Intelligence</h2>
-                <div class="skills-list">
-                    <div class="skill-item" data-skill="Excel">
-                        <div class="skill-header">
-                            <span>Microsoft Excel</span>
-                            <span class="skill-level">Advanced</span>
+            <div class="skill-card">
+                <div class="skill-header">
+                    <i class="fas fa-chart-bar"></i>
+                    <h2>Data Analysis & BI</h2>
+                </div>
+                <div class="skill-body">
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <i class="fas fa-file-excel"></i>
+                            <span>Microsoft Excel (Advanced)</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • Advanced Formulas & Functions
-                            • PivotTables & Data Analysis
-                            • Data Validation & Automation
-                        </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="PowerBI">
-                        <div class="skill-header">
+                        <div class="skill-item">
+                            <i class="fas fa-chart-pie"></i>
                             <span>Power BI</span>
-                            <span class="skill-level">Proficient</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • Interactive Dashboard Development
-                            • DAX Formulas & Measures
-                            • Data Modeling & Relationships
-                        </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="Tableau">
-                        <div class="skill-header">
+                        <div class="skill-item">
+                            <i class="fas fa-chart-area"></i>
                             <span>Tableau</span>
-                            <span class="skill-level">Proficient</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • Data Visualization & Storytelling
-                            • Interactive Reports & Filters
-                            • Dashboard Design Best Practices
-                        </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="Statistical-Analysis">
-                        <div class="skill-header">
+                        <div class="skill-item">
+                            <i class="fas fa-calculator"></i>
                             <span>Statistical Analysis</span>
-                            <span class="skill-level">Proficient</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • Descriptive & Inferential Statistics
-                            • Hypothesis Testing & A/B Testing
-                            • Correlation & Regression Analysis
-                        </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="Business-Analytics">
-                        <div class="skill-header">
+                        <div class="skill-item">
+                            <i class="fas fa-briefcase"></i>
                             <span>Business Analytics</span>
-                            <span class="skill-level">Advanced</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
+                        <div class="skill-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>KPI Development & Tracking</span>
                         </div>
-                        <div class="skill-details">
-                            • KPI Development & Tracking
-                            • Financial Analysis & Reporting
-                            • Performance Metrics & Insights
+                        <div class="skill-item">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <span>Financial Reporting</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Python for Data Analysis -->
-            <div class="card skills-card">
-                <h2><i class="fab fa-python"></i> Python for Data Analysis</h2>
-                <div class="skills-list">
-                    <div class="skill-item" data-skill="Python-Data">
-                        <div class="skill-header">
+            <div class="skill-card">
+                <div class="skill-header">
+                    <i class="fab fa-python"></i>
+                    <h2>Python for Data</h2>
+                </div>
+                <div class="skill-body">
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <i class="fas fa-code"></i>
                             <span>Python Programming</span>
-                            <span class="skill-level">Advanced</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
+                        <div class="skill-item">
+                            <i class="fas fa-table"></i>
+                            <span>Pandas & NumPy</span>
                         </div>
-                        <div class="skill-details">
-                            • Data Manipulation with Pandas
-                            • NumPy for Numerical Analysis
-                            • Data Cleaning & Transformation
+                        <div class="skill-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Matplotlib & Seaborn</span>
                         </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="Data-Visualization-Python">
-                        <div class="skill-header">
-                            <span>Data Visualization</span>
-                            <span class="skill-level">Proficient</span>
+                        <div class="skill-item">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Plotly & Streamlit</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
+                        <div class="skill-item">
+                            <i class="fas fa-search"></i>
+                            <span>Exploratory Data Analysis</span>
                         </div>
-                        <div class="skill-details">
-                            • Matplotlib & Seaborn
-                            • Plotly Interactive Charts
-                            • Dashboard Creation with Streamlit
+                        <div class="skill-item">
+                            <i class="fas fa-cogs"></i>
+                            <span>ETL Pipeline Development</span>
                         </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="EDA">
-                        <div class="skill-header">
-                            <span>Exploratory Data Analysis (EDA)</span>
-                            <span class="skill-level">Advanced</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • Pattern Recognition & Outlier Detection
-                            • Data Distribution Analysis
-                            • Summary Statistics & Profiling
-                        </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="Data-Processing">
-                        <div class="skill-header">
-                            <span>Data Processing & ETL</span>
-                            <span class="skill-level">Proficient</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • ETL Pipeline Development
-                            • Data Quality Assessment
-                            • Automated Data Workflows
-                        </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="Jupyter">
-                        <div class="skill-header">
+                        <div class="skill-item">
+                            <i class="fas fa-book"></i>
                             <span>Jupyter Notebooks</span>
-                            <span class="skill-level">Proficient</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • Interactive Analysis & Documentation
-                            • Reproducible Research Workflows
-                            • Data Storytelling & Reports
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Machine Learning & AI - NEW SECTION -->
-            <div class="card skills-card">
-                <h2><i class="fas fa-brain"></i> Machine Learning & AI</h2>
-                <div class="skills-list">
-                    <div class="skill-item" data-skill="ML-Models">
-                        <div class="skill-header">
-                            <span>Machine Learning Models</span>
-                            <span class="skill-level">Proficient</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • Classification & Regression Models
-                            • Ensemble Methods (Random Forest, XGBoost)
-                            • Model Training & Hyperparameter Tuning
-                        </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="scikit-learn">
-                        <div class="skill-header">
-                            <span>scikit-learn</span>
-                            <span class="skill-level">Proficient</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • Model Selection & Evaluation
-                            • Cross-Validation & Grid Search
-                            • Pipeline Development
-                        </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="XGBoost">
-                        <div class="skill-header">
-                            <span>XGBoost & Gradient Boosting</span>
-                            <span class="skill-level">Proficient</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • Advanced Gradient Boosting
-                            • Hyperparameter Optimization
-                            • Production Model Deployment
-                        </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="Model-Explainability">
-                        <div class="skill-header">
-                            <span>Model Explainability (SHAP)</span>
-                            <span class="skill-level">Proficient</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • SHAP Values & Interpretability
-                            • Feature Importance Analysis
-                            • Transparent AI for Compliance
-                        </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="Model-Deployment">
-                        <div class="skill-header">
-                            <span>Model Deployment & MLOps</span>
-                            <span class="skill-level">Proficient</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • Cloud Deployment (Streamlit Cloud)
-                            • CI/CD Pipelines
-                            • Model Monitoring & Versioning
-                        </div>
-                    </div>
+            <!-- SQL & Databases -->
+            <div class="skill-card">
+                <div class="skill-header">
+                    <i class="fas fa-database"></i>
+                    <h2>SQL & Databases</h2>
                 </div>
-            </div>
-
-            <!-- SQL & Database Management -->
-            <div class="card skills-card">
-                <h2><i class="fas fa-database"></i> SQL & Database Management</h2>
-                <div class="skills-list">
-                    <div class="skill-item" data-skill="SQL">
-                        <div class="skill-header">
+                <div class="skill-body">
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <i class="fas fa-code"></i>
                             <span>SQL Query Development</span>
-                            <span class="skill-level">Proficient</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • Complex Joins & Subqueries
-                            • Aggregations & Window Functions
-                            • Query Optimization & Performance
-                        </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="MySQL">
-                        <div class="skill-header">
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
                             <span>MySQL</span>
-                            <span class="skill-level">Proficient</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • Relational Database Design
-                            • Data Integrity & Constraints
-                            • Indexing & Performance Tuning
-                        </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="MongoDB">
-                        <div class="skill-header">
+                        <div class="skill-item">
+                            <i class="fas fa-leaf"></i>
                             <span>MongoDB</span>
-                            <span class="skill-level">Intermediate</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
+                        <div class="skill-item">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Database Design</span>
                         </div>
-                        <div class="skill-details">
-                            • NoSQL Data Modeling
-                            • Document Queries & Aggregation
-                            • Data Storage & Retrieval
+                        <div class="skill-item">
+                            <i class="fas fa-bolt"></i>
+                            <span>Query Optimization</span>
                         </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="Data-Management">
-                        <div class="skill-header">
-                            <span>Data Management</span>
-                            <span class="skill-level">Proficient</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • Data Quality & Validation
-                            • Database Administration Basics
-                            • Backup & Recovery Procedures
+                        <div class="skill-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Data Quality & Validation</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Forecasting & Predictive Analytics -->
-            <div class="card skills-card">
-                <h2><i class="fas fa-chart-line"></i> Forecasting & Predictive Analytics</h2>
-                <div class="skills-list">
-                    <div class="skill-item" data-skill="Time-Series">
-                        <div class="skill-header">
+            <!-- Machine Learning & AI -->
+            <div class="skill-card">
+                <div class="skill-header">
+                    <i class="fas fa-brain"></i>
+                    <h2>Machine Learning & AI</h2>
+                </div>
+                <div class="skill-body">
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <i class="fas fa-robot"></i>
+                            <span>Machine Learning Models</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-cog"></i>
+                            <span>scikit-learn</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>XGBoost & Gradient Boosting</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-eye"></i>
+                            <span>SHAP Model Explainability</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Model Deployment & MLOps</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Feature Engineering</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forecasting & Analytics -->
+            <div class="skill-card">
+                <div class="skill-header">
+                    <i class="fas fa-chart-line"></i>
+                    <h2>Forecasting & Predictive Analytics</h2>
+                </div>
+                <div class="skill-body">
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <i class="fas fa-calendar-alt"></i>
                             <span>Time-Series Forecasting</span>
-                            <span class="skill-level">Proficient</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-area"></i>
+                            <span>Prophet & Statistical Models</span>
                         </div>
-                        <div class="skill-details">
-                            • Financial & Revenue Forecasting
-                            • Trend Analysis & Seasonality
-                            • Prophet & Statistical Models
-                        </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="Predictive-Models">
-                        <div class="skill-header">
-                            <span>Predictive Modeling</span>
-                            <span class="skill-level">Proficient</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • Regression & Classification Models
-                            • Model Evaluation & Validation
-                            • Feature Engineering & Selection
-                        </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="Anomaly-Detection">
-                        <div class="skill-header">
+                        <div class="skill-item">
+                            <i class="fas fa-exclamation-triangle"></i>
                             <span>Anomaly Detection</span>
-                            <span class="skill-level">Proficient</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • Outlier Identification
-                            • Fraud Detection Techniques
-                            • Pattern Recognition
-                        </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="Risk-Analytics">
-                        <div class="skill-header">
+                        <div class="skill-item">
+                            <i class="fas fa-shield-alt"></i>
                             <span>Risk Analytics</span>
-                            <span class="skill-level">Proficient</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
+                        <div class="skill-item">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>Financial Forecasting</span>
                         </div>
-                        <div class="skill-details">
-                            • Risk Scoring & Assessment
-                            • Performance Metrics & KPIs
-                            • Compliance & Reporting
+                        <div class="skill-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Trend Analysis</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Web Development -->
-            <div class="card skills-card">
-                <h2><i class="fas fa-laptop-code"></i> Web Development</h2>
-                <div class="skills-list">
-                    <div class="skill-item" data-skill="JavaScript">
-                        <div class="skill-header">
-                            <span>JavaScript</span>
-                            <span class="skill-level">Proficient</span>
+            <div class="skill-card">
+                <div class="skill-header">
+                    <i class="fas fa-laptop-code"></i>
+                    <h2>Web Development</h2>
+                </div>
+                <div class="skill-body">
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript (ES6+)</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • ES6+ Modern JavaScript
-                            • DOM Manipulation & Events
-                            • Async Programming
-                        </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="ReactJS">
-                        <div class="skill-header">
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
                             <span>React.js</span>
-                            <span class="skill-level">Proficient</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • Component-Based Architecture
-                            • State Management & Hooks
-                            • Interactive Dashboards
-                        </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="HTML-CSS">
-                        <div class="skill-header">
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
                             <span>HTML5 & CSS3</span>
-                            <span class="skill-level">Advanced</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
+                        <div class="skill-item">
+                            <i class="fas fa-palette"></i>
+                            <span>Tailwind CSS</span>
                         </div>
-                        <div class="skill-details">
-                            • Responsive Design & Tailwind CSS
-                            • Mobile-First Development
-                            • Accessibility Standards
+                        <div class="skill-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Responsive Design</span>
                         </div>
-                    </div>
-
-                    <div class="skill-item" data-skill="Visualization-Libraries">
-                        <div class="skill-header">
-                            <span>Visualization Libraries</span>
-                            <span class="skill-level">Proficient</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                        <div class="skill-details">
-                            • Chart.js & Plotly
-                            • Interactive Data Visualizations
-                            • Dashboard Development
+                        <div class="skill-item">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Chart.js & Plotly</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Development Tools & Platforms -->
-            <div class="card tools-card">
-                <h2><i class="fas fa-tools"></i> Tools & Platforms</h2>
-                <div class="tools-grid">
-                    <div class="tool-item">
-                        <i class="fas fa-file-excel"></i>
-                        <span>Excel</span>
-                        <p>Advanced Analytics & Automation</p>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fas fa-chart-bar"></i>
-                        <span>Power BI</span>
-                        <p>Business Intelligence Dashboards</p>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fas fa-chart-area"></i>
-                        <span>Tableau</span>
-                        <p>Data Visualization & Reporting</p>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                        <p>Version Control & Collaboration</p>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fab fa-python"></i>
-                        <span>Jupyter</span>
-                        <p>Data Analysis & Documentation</p>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fas fa-code"></i>
-                        <span>VS Code</span>
-                        <p>Primary Development IDE</p>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fab fa-docker"></i>
-                        <span>Docker</span>
-                        <p>Application Deployment</p>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fas fa-cloud"></i>
-                        <span>Streamlit Cloud</span>
-                        <p>ML Model Deployment & Hosting</p>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fas fa-terminal"></i>
-                        <span>Command Line</span>
-                        <p>Bash & Automation</p>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fas fa-database"></i>
-                        <span>SQL Tools</span>
-                        <p>Database Management & Queries</p>
+            <!-- Tools & Platforms (Full Width) -->
+            <div class="tools-section">
+                <div class="tools-header">
+                    <i class="fas fa-tools"></i>
+                    <h2>Tools & Platforms</h2>
+                </div>
+                <div class="tools-body">
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <i class="fas fa-file-excel"></i>
+                            <h3>Excel</h3>
+                            <p>Advanced Analytics</p>
+                        </div>
+                        <div class="tool-card">
+                            <i class="fas fa-chart-bar"></i>
+                            <h3>Power BI</h3>
+                            <p>BI Dashboards</p>
+                        </div>
+                        <div class="tool-card">
+                            <i class="fas fa-chart-area"></i>
+                            <h3>Tableau</h3>
+                            <p>Data Visualization</p>
+                        </div>
+                        <div class="tool-card">
+                            <i class="fab fa-github"></i>
+                            <h3>GitHub</h3>
+                            <p>Version Control</p>
+                        </div>
+                        <div class="tool-card">
+                            <i class="fab fa-python"></i>
+                            <h3>Jupyter</h3>
+                            <p>Data Analysis</p>
+                        </div>
+                        <div class="tool-card">
+                            <i class="fas fa-code"></i>
+                            <h3>VS Code</h3>
+                            <p>Development IDE</p>
+                        </div>
+                        <div class="tool-card">
+                            <i class="fab fa-docker"></i>
+                            <h3>Docker</h3>
+                            <p>Containerization</p>
+                        </div>
+                        <div class="tool-card">
+                            <i class="fas fa-cloud"></i>
+                            <h3>Streamlit Cloud</h3>
+                            <p>ML Deployment</p>
+                        </div>
+                        <div class="tool-card">
+                            <i class="fas fa-terminal"></i>
+                            <h3>Command Line</h3>
+                            <p>Bash & Automation</p>
+                        </div>
+                        <div class="tool-card">
+                            <i class="fas fa-database"></i>
+                            <h3>SQL Tools</h3>
+                            <p>Database Management</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Data Analytics Expertise -->
-            <div class="card expertise-card">
-                <h2><i class="fas fa-layer-group"></i> Data Analytics Expertise</h2>
-                <div class="expertise-grid">
-                    <div class="expertise-item">
-                        <h3>Business Intelligence</h3>
-                        <ul>
-                            <li>KPI Dashboard Development</li>
-                            <li>Executive Reporting & Insights</li>
-                            <li>Performance Metrics Tracking</li>
-                            <li>Data-Driven Decision Support</li>
-                            <li>Automated Reporting Workflows</li>
-                        </ul>
-                    </div>
-                    <div class="expertise-item">
-                        <h3>Financial Analytics</h3>
-                        <ul>
-                            <li>Revenue & Expense Forecasting</li>
-                            <li>Profit Margin Analysis</li>
-                            <li>Cost-Benefit Analysis</li>
-                            <li>Budget Planning & Optimization</li>
-                            <li>Financial Performance Reporting</li>
-                        </ul>
-                    </div>
-                    <div class="expertise-item">
-                        <h3>Data Management</h3>
-                        <ul>
-                            <li>Data Quality & Validation</li>
-                            <li>ETL Pipeline Development</li>
-                            <li>Database Design & Optimization</li>
-                            <li>Data Governance & Compliance</li>
-                            <li>Master Data Management</li>
-                        </ul>
-                    </div>
-                    <div class="expertise-item">
-                        <h3>Operational Analytics</h3>
-                        <ul>
-                            <li>Process Efficiency Analysis</li>
-                            <li>Resource Allocation Optimization</li>
-                            <li>Performance Benchmarking</li>
-                            <li>Workflow Automation</li>
-                            <li>Productivity Metrics</li>
-                        </ul>
-                    </div>
-                    <div class="expertise-item">
-                        <h3>Data Visualization</h3>
-                        <ul>
-                            <li>Interactive Dashboard Design</li>
-                            <li>Executive Presentations</li>
-                            <li>Data Storytelling</li>
-                            <li>Chart & Graph Optimization</li>
-                            <li>Self-Service Analytics Tools</li>
-                        </ul>
-                    </div>
-                    <div class="expertise-item">
-                        <h3>Analytics Applications</h3>
-                        <ul>
-                            <li>Credit Risk & Default Prediction</li>
-                            <li>Fraud & Risk Detection</li>
-                            <li>Machine Learning Model Development</li>
-                            <li>Customer Analytics</li>
-                            <li>Sales Performance Analysis</li>
-                            <li>Trend Forecasting</li>
-                            <li>Anomaly Detection</li>
-                        </ul>
+            <!-- Professional Expertise (Full Width) -->
+            <div class="expertise-section">
+                <div class="expertise-header">
+                    <i class="fas fa-layer-group"></i>
+                    <h2>Professional Expertise</h2>
+                </div>
+                <div class="expertise-body">
+                    <div class="expertise-grid">
+                        <div class="expertise-item">
+                            <h3>Business Intelligence</h3>
+                            <ul>
+                                <li>KPI Dashboard Development</li>
+                                <li>Executive Reporting</li>
+                                <li>Performance Metrics</li>
+                                <li>Data-Driven Decisions</li>
+                                <li>Automated Reporting</li>
+                            </ul>
+                        </div>
+                        <div class="expertise-item">
+                            <h3>Financial Analytics</h3>
+                            <ul>
+                                <li>Revenue Forecasting</li>
+                                <li>Profit Margin Analysis</li>
+                                <li>Cost-Benefit Analysis</li>
+                                <li>Budget Planning</li>
+                                <li>Financial Performance</li>
+                            </ul>
+                        </div>
+                        <div class="expertise-item">
+                            <h3>Data Management</h3>
+                            <ul>
+                                <li>Data Quality & Validation</li>
+                                <li>ETL Pipelines</li>
+                                <li>Database Optimization</li>
+                                <li>Data Governance</li>
+                                <li>Master Data Management</li>
+                            </ul>
+                        </div>
+                        <div class="expertise-item">
+                            <h3>Operational Analytics</h3>
+                            <ul>
+                                <li>Process Efficiency</li>
+                                <li>Resource Optimization</li>
+                                <li>Performance Benchmarking</li>
+                                <li>Workflow Automation</li>
+                                <li>Productivity Metrics</li>
+                            </ul>
+                        </div>
+                        <div class="expertise-item">
+                            <h3>Data Visualization</h3>
+                            <ul>
+                                <li>Interactive Dashboards</li>
+                                <li>Executive Presentations</li>
+                                <li>Data Storytelling</li>
+                                <li>Chart Optimization</li>
+                                <li>Self-Service Analytics</li>
+                            </ul>
+                        </div>
+                        <div class="expertise-item">
+                            <h3>Specialized Applications</h3>
+                            <ul>
+                                <li>Credit Risk Prediction</li>
+                                <li>Fraud Detection</li>
+                                <li>ML Model Development</li>
+                                <li>Customer Analytics</li>
+                                <li>Sales Performance</li>
+                                <li>Trend Forecasting</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- NOTE: Removed the "Technical Proficiencies" summary card to reduce duplication -->
         </div>
     </main>
 
