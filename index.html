@@ -65,13 +65,35 @@
         }
         
         .tagline {
-            font-size: 1.5rem;
+            font-size: 2rem;
             color: #1f2937;
-            font-weight: 600;
+            font-weight: 700;
             line-height: 1.8;
             margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.3s forwards;
+            overflow: hidden;
+            border-right: 3px solid #667eea;
+            white-space: nowrap;
+            display: inline-block;
+            margin: 0 auto 2rem auto;
+            animation: typing 3.5s steps(50, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        
+        @keyframes blink-caret {
+            from, to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: #667eea;
+            }
         }
         
         @keyframes fadeInUp {
@@ -137,7 +159,11 @@
         
         @media (max-width: 768px) {
             .tagline {
-                font-size: 1.25rem;
+                font-size: 1.5rem;
+                white-space: normal;
+                border-right: none;
+                animation: none;
+                display: block;
             }
             
             .name {
@@ -196,7 +222,7 @@
                     <i class="fab fa-github"></i> GitHub
                 </a>
                 <a href="Resume - David Madison.pdf" download class="btn btn-secondary">
-                    <i class="fas fa-download"></i> Download Resume
+                    <i class="fas fa-download"></i> Resume
                 </a>
             </div>
         </div>
