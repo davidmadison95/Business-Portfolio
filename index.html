@@ -47,6 +47,14 @@
             max-width: 800px;
         }
         
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        
         .title {
             font-size: 4.5rem;
             font-weight: 800;
@@ -56,8 +64,29 @@
             line-height: 1.1;
         }
         
+        .tagline {
+            font-size: 1.5rem;
+            color: #1f2937;
+            font-weight: 600;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.05rem;
             color: #6b7280;
             line-height: 1.8;
             margin-bottom: 3rem;
@@ -107,12 +136,20 @@
         }
         
         @media (max-width: 768px) {
+            .tagline {
+                font-size: 1.25rem;
+            }
+            
+            .name {
+                font-size: 1.75rem;
+            }
+            
             .title {
                 font-size: 2.5rem;
             }
             
             .subtitle {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
             
             .cta-buttons {
@@ -149,6 +186,7 @@
     
     <main class="hero">
         <div class="hero-content">
+            <p class="tagline">I build things that make data easier to understand.</p>
             <p class="subtitle">Data Analyst & Full-Stack Developer | M.S. Data Analytics | U.S. Army Veteran</p>
             <div class="cta-buttons">
                 <a href="https://www.linkedin.com/in/davidmadison95" target="_blank" class="btn btn-primary">
@@ -156,6 +194,9 @@
                 </a>
                 <a href="https://github.com/davidmadison95" target="_blank" class="btn btn-secondary">
                     <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="#" download class="btn btn-secondary">
+                    <i class="fas fa-download"></i> Download Resume
                 </a>
             </div>
         </div>
