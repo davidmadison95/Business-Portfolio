@@ -7,66 +7,91 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
-        /* Simple, clean styling to match other pages */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: white;
+            overflow-x: hidden;
+        }
+        
+        /* Simple subtle background */
+        .simple-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero .container {
-            text-align: center;
-            max-width: 900px;
             padding: 2rem;
         }
         
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+        }
+        
         .title {
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: #000000;
             margin-bottom: 1.5rem;
-            line-height: 1.2;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
         }
         
         .subtitle {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: #6b7280;
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
+            line-height: 1.8;
+            margin-bottom: 3rem;
         }
         
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
         }
         
         .btn {
-            padding: 1rem 2rem;
+            padding: 1rem 2.5rem;
             border-radius: 8px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
             font-size: 1rem;
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #667eea;
             color: white;
-            border: none;
+            border: 2px solid #667eea;
         }
         
         .btn-primary:hover {
+            background: #5568d3;
+            border-color: #5568d3;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
         }
         
         .btn-secondary {
@@ -78,15 +103,16 @@
         .btn-secondary:hover {
             border-color: #667eea;
             color: #667eea;
+            transform: translateY(-2px);
         }
         
         @media (max-width: 768px) {
             .title {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
             .subtitle {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
             .cta-buttons {
@@ -101,14 +127,10 @@
     </style>
 </head>
 <body>
-    <!-- Page Transition -->
     <div class="page-transition"></div>
     
-    <!-- Particles Background -->
-    <div id="particles-js" class="particles-container"></div>
-    
-    <!-- Background Pattern -->
-    <div class="background-pattern"></div>
+    <!-- Simple Background -->
+    <div class="simple-bg"></div>
     
     <nav class="navbar">
         <div class="nav-content">
@@ -126,10 +148,8 @@
     </nav>
     
     <main class="hero">
-        <div class="container">
-            <h1 class="title">
-                <span class="typewriter" data-text="Hi, I'm David. I turn data into business decisions."></span>
-            </h1>
+        <div class="hero-content">
+            <h1 class="title">David Madison</h1>
             <p class="subtitle">Data Analyst & Full-Stack Developer | M.S. Data Analytics | U.S. Army Veteran</p>
             <div class="cta-buttons">
                 <a href="https://www.linkedin.com/in/davidmadison95" target="_blank" class="btn btn-primary">
