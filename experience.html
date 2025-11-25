@@ -8,295 +8,150 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
-        /* Clean Professional Experience Layout */
-        * {
-            box-sizing: border-box;
-        }
-        
+        /* Simple, clean experience styling */
         .experience-container {
-            max-width: 1400px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
         }
         
-        .section-wrapper {
-            margin-bottom: 4rem;
-        }
-        
-        .section-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 1.5rem 2rem;
-            border-radius: 12px;
-            color: white;
+        .section-title {
+            font-size: 1.75rem;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+            margin-top: 3rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid #667eea;
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
         }
         
-        .section-header i {
-            font-size: 1.75rem;
+        .section-title:first-of-type {
+            margin-top: 0;
         }
         
-        .section-header h2 {
-            margin: 0;
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
+        .section-title i {
+            color: #667eea;
         }
         
-        .experience-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        
-        .experience-card {
+        .experience-item,
+        .education-item,
+        .cert-item,
+        .award-item {
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         
-        .experience-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-        }
-        
-        .job-header {
-            background: #f9fafb;
-            padding: 1.75rem 2rem;
-            border-bottom: 2px solid #e5e7eb;
-        }
-        
-        .job-header h3 {
+        .experience-item h3,
+        .education-item h3 {
             margin: 0 0 0.5rem 0;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: #1f2937;
-            font-weight: 700;
         }
         
-        .company-name {
+        .company,
+        .school {
             color: #667eea;
             font-weight: 600;
-            font-size: 1.05rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
             display: block;
+            margin-bottom: 0.75rem;
         }
         
-        .job-meta {
+        .meta {
             display: flex;
             gap: 1.5rem;
             color: #6b7280;
             font-size: 0.9rem;
+            margin-bottom: 1.5rem;
             flex-wrap: wrap;
         }
         
-        .job-meta span {
+        .meta span {
             display: flex;
             align-items: center;
             gap: 0.4rem;
         }
         
-        .job-meta i {
+        .meta i {
             color: #667eea;
         }
         
-        .job-body {
-            padding: 2rem;
+        .experience-item ul,
+        .education-item ul,
+        .cert-item ul,
+        .award-item ul {
+            margin: 0 0 1rem 0;
+            padding-left: 1.25rem;
         }
         
-        .job-description {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 1.5rem 0;
-        }
-        
-        .job-description li {
-            padding: 0.75rem 0;
-            padding-left: 1.75rem;
-            position: relative;
-            line-height: 1.7;
+        .experience-item li {
             color: #4b5563;
-            border-bottom: 1px solid #f3f4f6;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
         }
         
-        .job-description li:last-child {
-            border-bottom: none;
-        }
-        
-        .job-description li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
-        }
-        
-        .skills-tags {
+        .tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            padding-top: 1.5rem;
-            border-top: 2px solid #f3f4f6;
+            margin-top: 1rem;
         }
         
-        .skill-tag {
-            display: inline-block;
-            padding: 0.5rem 1rem;
+        .tag {
+            padding: 0.4rem 0.85rem;
             background: #eff6ff;
             color: #1e40af;
-            border-radius: 6px;
+            border-radius: 4px;
             font-size: 0.85rem;
-            font-weight: 600;
-            border: 1px solid #dbeafe;
+            font-weight: 500;
         }
         
-        .education-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        
-        .education-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        
-        .education-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-        }
-        
-        .edu-header {
-            background: #f9fafb;
-            padding: 1.75rem 2rem;
-            border-bottom: 2px solid #e5e7eb;
-        }
-        
-        .edu-header h3 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.3rem;
-            color: #1f2937;
-            font-weight: 700;
-        }
-        
-        .concentration {
+        .education-item .concentration {
             color: #6b7280;
             font-style: italic;
             font-size: 0.95rem;
-            margin-bottom: 0.75rem;
             display: block;
-        }
-        
-        .school-name {
-            color: #667eea;
-            font-weight: 600;
-            font-size: 1.05rem;
             margin-bottom: 0.75rem;
-            display: block;
-        }
-        
-        .edu-meta {
-            display: flex;
-            gap: 1.5rem;
-            color: #6b7280;
-            font-size: 0.9rem;
-            flex-wrap: wrap;
-        }
-        
-        .edu-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-        
-        .edu-meta i {
-            color: #667eea;
-        }
-        
-        .edu-body {
-            padding: 2rem;
         }
         
         .coursework-title {
             font-size: 1rem;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 1rem;
-        }
-        
-        .course-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .course-tag {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: #eff6ff;
-            color: #1e40af;
-            border-radius: 6px;
-            font-size: 0.85rem;
             font-weight: 600;
-            border: 1px solid #dbeafe;
-        }
-        
-        .certs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .cert-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            padding: 2rem;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            display: flex;
-            gap: 1.5rem;
-        }
-        
-        .cert-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-        }
-        
-        .cert-icon {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        
-        .cert-icon i {
-            color: white;
-            font-size: 1.5rem;
-        }
-        
-        .cert-content h3 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.1rem;
             color: #1f2937;
-            font-weight: 700;
+            margin: 1.5rem 0 0.75rem 0;
         }
         
-        .cert-content p {
-            margin: 0 0 0.75rem 0;
+        .certs-grid,
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .cert-item,
+        .award-item {
+            padding: 2rem;
+        }
+        
+        .cert-item h4,
+        .award-item h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.15rem;
+            color: #1f2937;
+        }
+        
+        .cert-item p,
+        .award-item p {
             color: #6b7280;
             font-size: 0.9rem;
             line-height: 1.6;
+            margin-bottom: 0.5rem;
         }
         
         .cert-badge {
@@ -304,118 +159,36 @@
             padding: 0.35rem 0.75rem;
             background: #d1fae5;
             color: #065f46;
-            border-radius: 6px;
+            border-radius: 4px;
             font-size: 0.8rem;
             font-weight: 600;
+            margin-top: 0.5rem;
         }
         
-        .awards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
+        .award-item ul {
+            margin-top: 0.75rem;
         }
         
-        .award-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            padding: 2rem;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        
-        .award-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-        }
-        
-        .award-header {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .award-icon {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        
-        .award-icon i {
-            color: white;
-            font-size: 1.5rem;
-        }
-        
-        .award-content h3 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.1rem;
-            color: #1f2937;
-            font-weight: 700;
-        }
-        
-        .award-content > p {
-            margin: 0;
-            color: #6b7280;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-        
-        .award-list {
-            list-style: none;
-            padding: 0;
-            margin: 0.75rem 0 0 0;
-        }
-        
-        .award-list li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
+        .award-item li {
             color: #4b5563;
             font-size: 0.9rem;
             line-height: 1.6;
-        }
-        
-        .award-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
+            margin-bottom: 0.35rem;
         }
         
         @media (max-width: 768px) {
+            .experience-item,
+            .education-item,
+            .cert-item,
+            .award-item {
+                padding: 1.5rem;
+            }
+            
             .experience-container {
                 padding: 1rem;
             }
             
-            .section-header {
-                padding: 1.25rem 1.5rem;
-            }
-            
-            .job-header {
-                padding: 1.5rem;
-            }
-            
-            .job-body {
-                padding: 1.5rem;
-            }
-            
-            .edu-header {
-                padding: 1.5rem;
-            }
-            
-            .edu-body {
-                padding: 1.5rem;
-            }
-            
-            .certs-grid {
-                grid-template-columns: 1fr;
-            }
-            
+            .certs-grid,
             .awards-grid {
                 grid-template-columns: 1fr;
             }
@@ -423,10 +196,7 @@
     </style>
 </head>
 <body>
-    <!-- Page Transition -->
     <div class="page-transition"></div>
-
-    <!-- Background Pattern -->
     <div class="background-pattern"></div>
 
     <nav class="navbar">
@@ -448,459 +218,292 @@
         <h1 class="title">Professional Journey</h1>
 
         <div class="experience-container">
-            <!-- Professional Experience Section -->
-            <div class="section-wrapper">
-                <div class="section-header">
-                    <i class="fas fa-briefcase"></i>
-                    <h2>Professional Experience</h2>
+            <!-- Professional Experience -->
+            <h2 class="section-title">
+                <i class="fas fa-briefcase"></i> Professional Experience
+            </h2>
+
+            <!-- ISS STOXX -->
+            <div class="experience-item">
+                <h3>Vote Execution Jr. Analyst</h3>
+                <span class="company">ISS STOXX</span>
+                <div class="meta">
+                    <span><i class="fas fa-map-marker-alt"></i> Norman, OK</span>
+                    <span><i class="fas fa-calendar"></i> December 2025 - Present</span>
                 </div>
-
-                <div class="experience-grid">
-                    <!-- ISS STOXX -->
-                    <div class="experience-card">
-                        <div class="job-header">
-                            <h3>Vote Execution Jr. Analyst</h3>
-                            <span class="company-name">ISS STOXX</span>
-                            <div class="job-meta">
-                                <span><i class="fas fa-map-marker-alt"></i> Norman, OK</span>
-                                <span><i class="fas fa-calendar"></i> December 2025 - Present</span>
-                            </div>
-                        </div>
-                        <div class="job-body">
-                            <ul class="job-description">
-                                <li>Process and validate 1,000+ corporate proxy votes per week while maintaining 100% compliance with client service-level agreements and governance standards.</li>
-                                <li>Audit and reconcile large governance datasets (500K+ records) using Excel and SQL to detect and correct discrepancies, improving data accuracy by 15%+ within the first quarter.</li>
-                                <li>Build and maintain vote-execution tracking dashboards in Excel and Power BI to visualize daily performance metrics, reducing manual reporting time by 35%.</li>
-                                <li>Coordinate with global data, client-service, and operations teams across three time zones to ensure seamless vote submissions ahead of regulatory deadlines.</li>
-                            </ul>
-                            <div class="skills-tags">
-                                <span class="skill-tag">Excel & SQL</span>
-                                <span class="skill-tag">Power BI</span>
-                                <span class="skill-tag">Data Quality</span>
-                                <span class="skill-tag">Corporate Governance</span>
-                                <span class="skill-tag">Cross-Functional Collaboration</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Research Assistant -->
-                    <div class="experience-card">
-                        <div class="job-header">
-                            <h3>Research Assistant – Data-Driven Computational Design</h3>
-                            <span class="company-name">University of Oklahoma (AI & Robotics)</span>
-                            <div class="job-meta">
-                                <span><i class="fas fa-map-marker-alt"></i> Norman, OK</span>
-                                <span><i class="fas fa-calendar"></i> May 2025 - Present</span>
-                            </div>
-                        </div>
-                        <div class="job-body">
-                            <ul class="job-description">
-                                <li>Collected and analyzed over 10,000 data points from 3D-printing experiments using Python (pandas, NumPy) to identify material performance patterns and optimize manufacturing parameters.</li>
-                                <li>Assisted in developing and testing predictive models that achieved 87% accuracy in forecasting material strength, enabling data-driven design decisions.</li>
-                                <li>Designed and automated ETL workflows to standardize data collection and cleaning processes, improving efficiency and consistency across multiple research experiments.</li>
-                                <li>Created visual reports and statistical summaries in Power BI and matplotlib to communicate findings to AI and robotics researchers, supporting grant proposals and academic publications.</li>
-                            </ul>
-                            <div class="skills-tags">
-                                <span class="skill-tag">Python (pandas, NumPy)</span>
-                                <span class="skill-tag">Predictive Modeling</span>
-                                <span class="skill-tag">ETL Workflows</span>
-                                <span class="skill-tag">Power BI</span>
-                                <span class="skill-tag">Research Analytics</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Student Services -->
-                    <div class="experience-card">
-                        <div class="job-header">
-                            <h3>Senior Student Services Specialist | Supervisor</h3>
-                            <span class="company-name">University of Oklahoma</span>
-                            <div class="job-meta">
-                                <span><i class="fas fa-map-marker-alt"></i> Norman, OK</span>
-                                <span><i class="fas fa-calendar"></i> January 2023 - November 2025</span>
-                            </div>
-                        </div>
-                        <div class="job-body">
-                            <ul class="job-description">
-                                <li>Analyzed student enrollment and retention data to identify at-risk populations, resulting in targeted intervention strategies that contributed to an estimated 10% increase in student engagement across AME programs.</li>
-                                <li>Developed automated reports and interactive dashboards in Excel and Power BI to track key student success metrics, enabling faculty and leadership to make data-driven decisions on resource allocation.</li>
-                                <li>Maintained data quality and integrity across multiple student information systems, implementing validation processes that reduced data entry errors and improved operational efficiency.</li>
-                                <li>Represented staff on four university-level committees (Fitness & Recreation, Student Conduct, Staff Senate Outreach, Merit Awards), bringing data-informed perspectives to policy discussions and governance decisions.</li>
-                            </ul>
-                            <div class="skills-tags">
-                                <span class="skill-tag">Excel & Power BI</span>
-                                <span class="skill-tag">Data Dashboards</span>
-                                <span class="skill-tag">Student Analytics</span>
-                                <span class="skill-tag">Process Improvement</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Technical Operations Lead -->
-                    <div class="experience-card">
-                        <div class="job-header">
-                            <h3>Technical Operations Lead | Supervisor</h3>
-                            <span class="company-name">United States Army National Guard</span>
-                            <div class="job-meta">
-                                <span><i class="fas fa-map-marker-alt"></i> Fort Sill, OK</span>
-                                <span><i class="fas fa-calendar"></i> May 2021 - May 2024</span>
-                            </div>
-                        </div>
-                        <div class="job-body">
-                            <ul class="job-description">
-                                <li>Supervised and trained a 10-soldier team in artillery operations, emphasizing risk management, precision, and process compliance in high-stakes operational environments.</li>
-                                <li>Managed and maintained secure communication systems (COMSEC), verifying data accuracy and reliability across all digital and voice transmissions.</li>
-                                <li>Collected and analyzed readiness and performance data to produce detailed operational reports that improved efficiency and informed leadership decisions.</li>
-                                <li>Developed and enforced standard operating procedures ensuring consistent data handling and technical system management across multiple training exercises and deployments.</li>
-                            </ul>
-                            <div class="skills-tags">
-                                <span class="skill-tag">Data Analysis</span>
-                                <span class="skill-tag">Secure Systems</span>
-                                <span class="skill-tag">Operational Reporting</span>
-                                <span class="skill-tag">Team Leadership</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- HR Data Team Lead -->
-                    <div class="experience-card">
-                        <div class="job-header">
-                            <h3>Human Resources Data Team Lead | Manager</h3>
-                            <span class="company-name">United States Army</span>
-                            <div class="job-meta">
-                                <span><i class="fas fa-map-marker-alt"></i> Fort Sill, OK</span>
-                                <span><i class="fas fa-calendar"></i> November 2018 - May 2021</span>
-                            </div>
-                        </div>
-                        <div class="job-body">
-                            <ul class="job-description">
-                                <li>Managed personnel records and data systems for 1,000+ service members, ensuring accuracy and compliance with military data standards and security protocols.</li>
-                                <li>Implemented data validation processes and quality control measures, reducing record discrepancies by 25% and improving database integrity across multiple HR systems.</li>
-                                <li>Coordinated with leadership to generate personnel analytics and workforce reports, supporting strategic decision-making for unit readiness and resource allocation.</li>
-                                <li>Led a team of 5 HR specialists in daily data management operations, establishing best practices for data entry, verification, and reporting procedures.</li>
-                            </ul>
-                            <div class="skills-tags">
-                                <span class="skill-tag">Database Management</span>
-                                <span class="skill-tag">Data Security</span>
-                                <span class="skill-tag">Quality Control</span>
-                                <span class="skill-tag">Team Management</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Field Artillery -->
-                    <div class="experience-card">
-                        <div class="job-header">
-                            <h3>Field Artillery Cannon Crewmember</h3>
-                            <span class="company-name">United States Army</span>
-                            <div class="job-meta">
-                                <span><i class="fas fa-map-marker-alt"></i> Killeen, TX (Fort Hood)</span>
-                                <span><i class="fas fa-calendar"></i> September 2014 - November 2018</span>
-                            </div>
-                        </div>
-                        <div class="job-body">
-                            <ul class="job-description">
-                                <li>Operated and maintained precision artillery systems across three international deployments (South Korea, Iraq, Poland/Germany), demonstrating adaptability in diverse operational environments.</li>
-                                <li>Executed complex fire missions requiring mathematical calculations, coordinate systems, and real-time data processing to ensure accuracy and mission success.</li>
-                                <li>Maintained detailed equipment logs and technical documentation, developing foundational skills in data recording and systematic process management.</li>
-                                <li>Collaborated with multinational forces during joint operations, building cross-cultural communication skills and operational flexibility under pressure.</li>
-                            </ul>
-                            <div class="skills-tags">
-                                <span class="skill-tag">International Operations</span>
-                                <span class="skill-tag">Technical Systems</span>
-                                <span class="skill-tag">Data Processing</span>
-                                <span class="skill-tag">Multinational Experience</span>
-                            </div>
-                        </div>
-                    </div>
+                <ul>
+                    <li>Process and validate 1,000+ corporate proxy votes per week while maintaining 100% compliance with client service-level agreements and governance standards.</li>
+                    <li>Audit and reconcile large governance datasets (500K+ records) using Excel and SQL to detect and correct discrepancies, improving data accuracy by 15%+ within the first quarter.</li>
+                    <li>Build and maintain vote-execution tracking dashboards in Excel and Power BI to visualize daily performance metrics, reducing manual reporting time by 35%.</li>
+                    <li>Coordinate with global data, client-service, and operations teams across three time zones to ensure seamless vote submissions ahead of regulatory deadlines.</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Excel & SQL</span>
+                    <span class="tag">Power BI</span>
+                    <span class="tag">Data Quality</span>
+                    <span class="tag">Corporate Governance</span>
                 </div>
             </div>
 
-            <!-- Education Section -->
-            <div class="section-wrapper">
-                <div class="section-header">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h2>Education</h2>
+            <!-- Research Assistant -->
+            <div class="experience-item">
+                <h3>Research Assistant – Data-Driven Computational Design</h3>
+                <span class="company">University of Oklahoma (AI & Robotics)</span>
+                <div class="meta">
+                    <span><i class="fas fa-map-marker-alt"></i> Norman, OK</span>
+                    <span><i class="fas fa-calendar"></i> May 2025 - Present</span>
                 </div>
-
-                <div class="education-grid">
-                    <!-- Master's Degree -->
-                    <div class="education-card">
-                        <div class="edu-header">
-                            <h3>Master of Science in Data Analytics</h3>
-                            <span class="school-name">Southern New Hampshire University</span>
-                            <div class="edu-meta">
-                                <span><i class="fas fa-calendar"></i> Expected May 2026</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bachelor's Degree -->
-                    <div class="education-card">
-                        <div class="edu-header">
-                            <h3>Bachelor of Science in Information Technology</h3>
-                            <span class="concentration">Concentration: Full-Stack Programming</span>
-                            <span class="school-name">American Military University</span>
-                            <div class="edu-meta">
-                                <span><i class="fas fa-calendar"></i> Conferred May 2025</span>
-                                <span><i class="fas fa-star"></i> GPA: 3.85 | Magna Cum Laude</span>
-                            </div>
-                        </div>
-                        <div class="edu-body">
-                            <h4 class="coursework-title">Relevant Coursework</h4>
-                            <div class="course-tags">
-                                <span class="course-tag">Intermediate Python Programming</span>
-                                <span class="course-tag">Web Development Using JavaScript</span>
-                                <span class="course-tag">MongoDB and Python</span>
-                            </div>
-                        </div>
-                    </div>
+                <ul>
+                    <li>Collected and analyzed over 10,000 data points from 3D-printing experiments using Python (pandas, NumPy) to identify material performance patterns and optimize manufacturing parameters.</li>
+                    <li>Assisted in developing and testing predictive models that achieved 87% accuracy in forecasting material strength, enabling data-driven design decisions.</li>
+                    <li>Designed and automated ETL workflows to standardize data collection and cleaning processes, improving efficiency and consistency across multiple research experiments.</li>
+                    <li>Created visual reports and statistical summaries in Power BI and matplotlib to communicate findings to AI and robotics researchers.</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Predictive Modeling</span>
+                    <span class="tag">ETL Workflows</span>
+                    <span class="tag">Power BI</span>
                 </div>
             </div>
 
-            <!-- Certifications Section -->
-            <div class="section-wrapper">
-                <div class="section-header">
-                    <i class="fas fa-certificate"></i>
-                    <h2>Professional Certifications</h2>
+            <!-- Student Services -->
+            <div class="experience-item">
+                <h3>Senior Student Services Specialist | Supervisor</h3>
+                <span class="company">University of Oklahoma</span>
+                <div class="meta">
+                    <span><i class="fas fa-map-marker-alt"></i> Norman, OK</span>
+                    <span><i class="fas fa-calendar"></i> January 2023 - November 2025</span>
                 </div>
-
-                <div class="certs-grid">
-                    <div class="cert-card">
-                        <div class="cert-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="cert-content">
-                            <h3>Applied Data Science with Python - Level 2</h3>
-                            <p>Comprehensive data analysis and visualization using Python libraries</p>
-                            <span class="cert-badge">Completed 2025</span>
-                        </div>
-                    </div>
-
-                    <div class="cert-card">
-                        <div class="cert-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <div class="cert-content">
-                            <h3>IBM Artificial Intelligence Practitioner</h3>
-                            <p>Industry-recognized AI practitioner certification from IBM</p>
-                            <span class="cert-badge">Completed 2025</span>
-                        </div>
-                    </div>
-
-                    <div class="cert-card">
-                        <div class="cert-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <div class="cert-content">
-                            <h3>Building AI Solutions Using Advanced Algorithms</h3>
-                            <p>Advanced certification in AI algorithm development and implementation</p>
-                            <span class="cert-badge">Completed 2025</span>
-                        </div>
-                    </div>
-
-                    <div class="cert-card">
-                        <div class="cert-icon">
-                            <i class="fas fa-magic"></i>
-                        </div>
-                        <div class="cert-content">
-                            <h3>Generative AI in Action</h3>
-                            <p>Practical application of generative AI technologies and frameworks</p>
-                            <span class="cert-badge">Completed 2025</span>
-                        </div>
-                    </div>
-
-                    <div class="cert-card">
-                        <div class="cert-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="cert-content">
-                            <h3>Vibe Coding 101 with Replit</h3>
-                            <p>DeepLearning.AI - Modern coding practices and AI-assisted development</p>
-                            <span class="cert-badge">Completed 2025</span>
-                        </div>
-                    </div>
+                <ul>
+                    <li>Analyzed student enrollment and retention data to identify at-risk populations, resulting in targeted intervention strategies that contributed to an estimated 10% increase in student engagement.</li>
+                    <li>Developed automated reports and interactive dashboards in Excel and Power BI to track key student success metrics, enabling data-driven decisions on resource allocation.</li>
+                    <li>Maintained data quality and integrity across multiple student information systems, implementing validation processes that reduced data entry errors.</li>
+                    <li>Represented staff on four university-level committees, bringing data-informed perspectives to policy discussions.</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Excel & Power BI</span>
+                    <span class="tag">Data Dashboards</span>
+                    <span class="tag">Student Analytics</span>
                 </div>
             </div>
 
-            <!-- Leadership & Awards Section -->
-            <div class="section-wrapper">
-                <div class="section-header">
-                    <i class="fas fa-trophy"></i>
-                    <h2>Leadership & Awards</h2>
+            <!-- Technical Operations Lead -->
+            <div class="experience-item">
+                <h3>Technical Operations Lead | Supervisor</h3>
+                <span class="company">United States Army National Guard</span>
+                <div class="meta">
+                    <span><i class="fas fa-map-marker-alt"></i> Fort Sill, OK</span>
+                    <span><i class="fas fa-calendar"></i> May 2021 - May 2024</span>
+                </div>
+                <ul>
+                    <li>Supervised and trained a 10-soldier team in artillery operations, emphasizing risk management, precision, and process compliance in high-stakes environments.</li>
+                    <li>Managed and maintained secure communication systems (COMSEC), verifying data accuracy and reliability across all transmissions.</li>
+                    <li>Collected and analyzed readiness and performance data to produce detailed operational reports that improved efficiency and informed leadership decisions.</li>
+                    <li>Developed and enforced standard operating procedures ensuring consistent data handling and technical system management.</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">Secure Systems</span>
+                    <span class="tag">Operational Reporting</span>
+                </div>
+            </div>
+
+            <!-- HR Data Team Lead -->
+            <div class="experience-item">
+                <h3>Human Resources Data Team Lead | Manager</h3>
+                <span class="company">United States Army</span>
+                <div class="meta">
+                    <span><i class="fas fa-map-marker-alt"></i> Fort Sill, OK</span>
+                    <span><i class="fas fa-calendar"></i> November 2018 - May 2021</span>
+                </div>
+                <ul>
+                    <li>Managed personnel records and data systems for 1,000+ service members, ensuring accuracy and compliance with military data standards and security protocols.</li>
+                    <li>Implemented data validation processes and quality control measures, reducing record discrepancies by 25% and improving database integrity.</li>
+                    <li>Coordinated with leadership to generate personnel analytics and workforce reports, supporting strategic decision-making for unit readiness.</li>
+                    <li>Led a team of 5 HR specialists in daily data management operations, establishing best practices for data entry and verification.</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Database Management</span>
+                    <span class="tag">Data Security</span>
+                    <span class="tag">Quality Control</span>
+                </div>
+            </div>
+
+            <!-- Field Artillery -->
+            <div class="experience-item">
+                <h3>Field Artillery Cannon Crewmember</h3>
+                <span class="company">United States Army</span>
+                <div class="meta">
+                    <span><i class="fas fa-map-marker-alt"></i> Killeen, TX (Fort Hood)</span>
+                    <span><i class="fas fa-calendar"></i> September 2014 - November 2018</span>
+                </div>
+                <ul>
+                    <li>Operated and maintained precision artillery systems across three international deployments (South Korea, Iraq, Poland/Germany), demonstrating adaptability in diverse operational environments.</li>
+                    <li>Executed complex fire missions requiring mathematical calculations, coordinate systems, and real-time data processing to ensure accuracy and mission success.</li>
+                    <li>Maintained detailed equipment logs and technical documentation, developing foundational skills in data recording and systematic process management.</li>
+                    <li>Collaborated with multinational forces during joint operations, building cross-cultural communication skills and operational flexibility.</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">International Operations</span>
+                    <span class="tag">Technical Systems</span>
+                    <span class="tag">Data Processing</span>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <h2 class="section-title">
+                <i class="fas fa-graduation-cap"></i> Education
+            </h2>
+
+            <!-- Master's Degree -->
+            <div class="education-item">
+                <h3>Master of Science in Data Analytics</h3>
+                <span class="school">Southern New Hampshire University</span>
+                <div class="meta">
+                    <span><i class="fas fa-calendar"></i> Expected May 2026</span>
+                </div>
+            </div>
+
+            <!-- Bachelor's Degree -->
+            <div class="education-item">
+                <h3>Bachelor of Science in Information Technology</h3>
+                <span class="concentration">Concentration: Full-Stack Programming</span>
+                <span class="school">American Military University</span>
+                <div class="meta">
+                    <span><i class="fas fa-calendar"></i> Conferred May 2025</span>
+                    <span><i class="fas fa-star"></i> GPA: 3.85 | Magna Cum Laude</span>
+                </div>
+                <h4 class="coursework-title">Relevant Coursework</h4>
+                <div class="tags">
+                    <span class="tag">Intermediate Python Programming</span>
+                    <span class="tag">Web Development Using JavaScript</span>
+                    <span class="tag">MongoDB and Python</span>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <h2 class="section-title">
+                <i class="fas fa-certificate"></i> Professional Certifications
+            </h2>
+
+            <div class="certs-grid">
+                <div class="cert-item">
+                    <h4>Applied Data Science with Python - Level 2</h4>
+                    <p>Comprehensive data analysis and visualization using Python libraries</p>
+                    <span class="cert-badge">Completed 2025</span>
                 </div>
 
-                <div class="awards-grid">
-                    <div class="award-card">
-                        <div class="award-header">
-                            <div class="award-icon">
-                                <i class="fas fa-award"></i>
-                            </div>
-                            <div>
-                                <h3>Outstanding Student Award</h3>
-                            </div>
-                        </div>
-                        <div class="award-content">
-                            <p>Outstanding Student Award in Information Technology - Recognized for academic excellence and contributions to the field</p>
-                        </div>
-                    </div>
+                <div class="cert-item">
+                    <h4>IBM Artificial Intelligence Practitioner</h4>
+                    <p>Industry-recognized AI practitioner certification from IBM</p>
+                    <span class="cert-badge">Completed 2025</span>
+                </div>
 
-                    <div class="award-card">
-                        <div class="award-header">
-                            <div class="award-icon">
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div>
-                                <h3>Academic Honors</h3>
-                            </div>
-                        </div>
-                        <div class="award-content">
-                            <ul class="award-list">
-                                <li>President's List (4.0 GPA, 6 terms)</li>
-                                <li>Dean's List (GPA 3.5–3.99, 2 terms)</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="cert-item">
+                    <h4>Building AI Solutions Using Advanced Algorithms</h4>
+                    <p>Advanced certification in AI algorithm development and implementation</p>
+                    <span class="cert-badge">Completed 2025</span>
+                </div>
 
-                    <div class="award-card">
-                        <div class="award-header">
-                            <div class="award-icon">
-                                <i class="fas fa-gavel"></i>
-                            </div>
-                            <div>
-                                <h3>Presidential Appointment</h3>
-                            </div>
-                        </div>
-                        <div class="award-content">
-                            <p>OU Committees: Fitness & Recreation, Student Conduct Hearing Panel, Staff Senate Community Outreach, and Merit Awards</p>
-                        </div>
-                    </div>
+                <div class="cert-item">
+                    <h4>Generative AI in Action</h4>
+                    <p>Practical application of generative AI technologies and frameworks</p>
+                    <span class="cert-badge">Completed 2025</span>
+                </div>
 
-                    <div class="award-card">
-                        <div class="award-header">
-                            <div class="award-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div>
-                                <h3>Leadership Positions</h3>
-                            </div>
-                        </div>
-                        <div class="award-content">
-                            <ul class="award-list">
-                                <li>Strategus, Kappa Alpha Psi Fraternity, Inc. (2023–Present)</li>
-                                <li>Vice President, Research and Scholarship Team (2025–Present)</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="cert-item">
+                    <h4>Vibe Coding 101 with Replit</h4>
+                    <p>DeepLearning.AI - Modern coding practices and AI-assisted development</p>
+                    <span class="cert-badge">Completed 2025</span>
+                </div>
+            </div>
 
-                    <div class="award-card">
-                        <div class="award-header">
-                            <div class="award-icon">
-                                <i class="fas fa-id-badge"></i>
-                            </div>
-                            <div>
-                                <h3>Professional Memberships</h3>
-                            </div>
-                        </div>
-                        <div class="award-content">
-                            <ul class="award-list">
-                                <li>Member, National Society of Black Engineers (NSBE)</li>
-                                <li>Member, Technology Professionals Group (TPG)</li>
-                            </ul>
-                        </div>
-                    </div>
+            <!-- Leadership & Awards -->
+            <h2 class="section-title">
+                <i class="fas fa-trophy"></i> Leadership & Awards
+            </h2>
 
-                    <div class="award-card">
-                        <div class="award-header">
-                            <div class="award-icon">
-                                <i class="fas fa-parachute-box"></i>
-                            </div>
-                            <div>
-                                <h3>Military Training & Qualifications</h3>
-                            </div>
-                        </div>
-                        <div class="award-content">
-                            <ul class="award-list">
-                                <li>Expert Soldier Badge - Demonstrated mastery of critical soldier skills</li>
-                                <li>Air Assault Badge - Completed helicopter operations training</li>
-                                <li>Pathfinder Badge - Elite airborne operations training</li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="awards-grid">
+                <div class="award-item">
+                    <h4>Outstanding Student Award</h4>
+                    <p>Outstanding Student Award in Information Technology - Recognized for academic excellence and contributions to the field</p>
+                </div>
 
-                    <div class="award-card">
-                        <div class="award-header">
-                            <div class="award-icon">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <div>
-                                <h3>Deployment & Service Awards</h3>
-                            </div>
-                        </div>
-                        <div class="award-content">
-                            <ul class="award-list">
-                                <li>Korea Defense Service Medal</li>
-                                <li>Global War on Terrorism Service Medal</li>
-                                <li>NATO Medal - Poland/Germany operations</li>
-                                <li>National Defense Service Medal</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="award-item">
+                    <h4>Academic Honors</h4>
+                    <ul>
+                        <li>President's List (4.0 GPA, 6 terms)</li>
+                        <li>Dean's List (GPA 3.5–3.99, 2 terms)</li>
+                    </ul>
+                </div>
 
-                    <div class="award-card">
-                        <div class="award-header">
-                            <div class="award-icon">
-                                <i class="fas fa-medal"></i>
-                            </div>
-                            <div>
-                                <h3>Excellence & Achievement</h3>
-                            </div>
-                        </div>
-                        <div class="award-content">
-                            <ul class="award-list">
-                                <li>Army Commendation Medal (ARCOM)</li>
-                                <li>Army Achievement Medal (8x)</li>
-                                <li>Good Conduct Medal (3x)</li>
-                                <li>Army Service Ribbon</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="award-item">
+                    <h4>Presidential Appointment</h4>
+                    <p>OU Committees: Fitness & Recreation, Student Conduct Hearing Panel, Staff Senate Community Outreach, and Merit Awards</p>
+                </div>
 
-                    <div class="award-card">
-                        <div class="award-header">
-                            <div class="award-icon">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <div>
-                                <h3>Professional Military Development</h3>
-                            </div>
-                        </div>
-                        <div class="award-content">
-                            <ul class="award-list">
-                                <li>Advanced Leader Course (ALC)</li>
-                                <li>Combat Life Saver Certified</li>
-                                <li>Basic Leader Course</li>
-                                <li>Armorer Certification</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="award-item">
+                    <h4>Leadership Positions</h4>
+                    <ul>
+                        <li>Strategus, Kappa Alpha Psi Fraternity, Inc. (2023–Present)</li>
+                        <li>Vice President, Research and Scholarship Team (2025–Present)</li>
+                    </ul>
+                </div>
 
-                    <div class="award-card">
-                        <div class="award-header">
-                            <div class="award-icon">
-                                <i class="fas fa-ribbon"></i>
-                            </div>
-                            <div>
-                                <h3>Service Ribbons</h3>
-                            </div>
-                        </div>
-                        <div class="award-content">
-                            <ul class="award-list">
-                                <li>Army Professional Development Ribbon</li>
-                                <li>Overseas Service Ribbon</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="award-item">
+                    <h4>Professional Memberships</h4>
+                    <ul>
+                        <li>Member, National Society of Black Engineers (NSBE)</li>
+                        <li>Member, Technology Professionals Group (TPG)</li>
+                    </ul>
+                </div>
+
+                <div class="award-item">
+                    <h4>Military Training & Qualifications</h4>
+                    <ul>
+                        <li>Expert Soldier Badge</li>
+                        <li>Air Assault Badge</li>
+                        <li>Pathfinder Badge</li>
+                    </ul>
+                </div>
+
+                <div class="award-item">
+                    <h4>Deployment & Service Awards</h4>
+                    <ul>
+                        <li>Korea Defense Service Medal</li>
+                        <li>Global War on Terrorism Service Medal</li>
+                        <li>NATO Medal</li>
+                        <li>National Defense Service Medal</li>
+                    </ul>
+                </div>
+
+                <div class="award-item">
+                    <h4>Excellence & Achievement</h4>
+                    <ul>
+                        <li>Army Commendation Medal (ARCOM)</li>
+                        <li>Army Achievement Medal (8x)</li>
+                        <li>Good Conduct Medal (3x)</li>
+                        <li>Army Service Ribbon</li>
+                    </ul>
+                </div>
+
+                <div class="award-item">
+                    <h4>Professional Military Development</h4>
+                    <ul>
+                        <li>Advanced Leader Course (ALC)</li>
+                        <li>Combat Life Saver Certified</li>
+                        <li>Basic Leader Course</li>
+                        <li>Armorer Certification</li>
+                    </ul>
+                </div>
+
+                <div class="award-item">
+                    <h4>Service Ribbons</h4>
+                    <ul>
+                        <li>Army Professional Development Ribbon</li>
+                        <li>Overseas Service Ribbon</li>
+                    </ul>
                 </div>
             </div>
         </div>
