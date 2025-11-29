@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Experience - David Madison</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
     <style>
         .experience-container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
         }
-        
+
         .section-title {
             font-size: 1.8rem;
             margin-top: 3rem;
@@ -23,47 +27,43 @@
             align-items: center;
             gap: 0.75rem;
         }
-        
+
         /* Dark mode support */
         [data-theme="dark"] .section-title {
             color: #f9fafb;
         }
-        
+
         [data-theme="dark"] .experience-item,
-        [data-theme="dark"] .education-item,
-        [data-theme="dark"] .cert-item,
-        [data-theme="dark"] .award-item {
+        [data-theme="dark"] .education-item {
             background: #2d3748;
         }
-        
+
         [data-theme="dark"] .experience-item h3,
         [data-theme="dark"] .education-item h3 {
             color: #f9fafb;
         }
-        
+
         [data-theme="dark"] .experience-item p,
         [data-theme="dark"] .education-item p,
         [data-theme="dark"] .experience-item li,
         [data-theme="dark"] .education-item li {
             color: #d1d5db;
         }
-        
+
         [data-theme="dark"] .meta {
             color: #9ca3af;
         }
-        
+
         .section-title:first-of-type {
             margin-top: 0;
         }
-        
+
         .section-title i {
             color: #667eea;
         }
-        
+
         .experience-item,
-        .education-item,
-        .cert-item,
-        .award-item {
+        .education-item {
             background: var(--card-bg);
             padding: 2.5rem;
             margin-bottom: 2rem;
@@ -71,14 +71,14 @@
             border-left: 4px solid #667eea;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
-        
+
         .experience-item h3,
         .education-item h3 {
             margin: 0 0 0.5rem 0;
             font-size: 1.4rem;
             color: #1f2937;
         }
-        
+
         .company {
             font-size: 1rem;
             font-weight: 600;
@@ -87,7 +87,7 @@
             letter-spacing: 0.08em;
             margin-bottom: 0.75rem;
         }
-        
+
         .meta {
             display: flex;
             flex-wrap: wrap;
@@ -96,35 +96,35 @@
             color: #6b7280;
             margin-bottom: 1rem;
         }
-        
+
         .meta span {
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
         }
-        
+
         .meta i {
             color: #9ca3af;
         }
-        
+
         .experience-item ul,
         .education-item ul {
             margin: 0 0 0 1.25rem;
         }
-        
+
         .experience-item li {
             color: #4b5563;
             line-height: 1.7;
             margin-bottom: 0.5rem;
         }
-        
+
         .tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
             margin-top: 1rem;
         }
-        
+
         .tag {
             padding: 0.25rem 0.75rem;
             border-radius: 999px;
@@ -133,12 +133,12 @@
             font-size: 0.8rem;
             font-weight: 500;
         }
-        
+
         [data-theme="dark"] .tag {
             background: #1e293b;
             color: #93c5fd;
         }
-        
+
         @media (max-width: 768px) {
             .experience-item,
             .education-item {
@@ -151,7 +151,6 @@
     <div class="page-transition"></div>
 
     <div class="bg-pattern"></div>
-    <div id="particles-js" class="particles-container"></div>
 
     <nav class="navbar">
         <div class="nav-content">
@@ -183,20 +182,30 @@
                 <h3>Vote Execution Jr. Analyst</h3>
                 <div class="meta">
                     <span><i class="fas fa-map-marker-alt"></i> Norman, OK</span>
-                    <span><i class="far fa-calendar-alt"></i> December 2025 - Present</span>
+                    <span><i class="far fa-calendar-alt"></i> Dec 2025 – Present</span>
                 </div>
                 <ul>
-                    <li>Process and validate 1,000+ corporate proxy votes per week while maintaining 100% compliance with client service-level agreements and governance standards.</li>
-                    <li>Audit and reconcile large governance datasets (500K+ records) using Excel and SQL to detect and correct discrepancies, improving data accuracy by 15%+ within the first quarter.</li>
-                    <li>Build and maintain vote-execution tracking dashboards in Excel and Power BI to visualize daily performance metrics, reducing manual reporting time by 35%.</li>
-                    <li>Coordinate with global data, client-service, and operations teams across three time zones to ensure seamless vote submissions ahead of regulatory deadlines.</li>
-                    <li>Research and resolve complex ballot, meeting, and instruction issues raised by clients, ensuring accurate and timely vote execution.</li>
+                    <li>
+                        Process and validate high volumes of corporate proxy votes while maintaining
+                        strict accuracy and compliance with governance guidelines.
+                    </li>
+                    <li>
+                        Audit and reconcile datasets in Excel and SQL to catch mismatches and data
+                        quality issues before they affect clients.
+                    </li>
+                    <li>
+                        Build and maintain simple reporting views that track daily vote execution
+                        status and SLA performance.
+                    </li>
+                    <li>
+                        Coordinate with internal teams across time zones to resolve ballot and
+                        meeting discrepancies under tight deadlines.
+                    </li>
                 </ul>
                 <div class="tags">
+                    <span class="tag">Data Quality</span>
                     <span class="tag">Excel</span>
                     <span class="tag">SQL</span>
-                    <span class="tag">Power BI</span>
-                    <span class="tag">Data Quality</span>
                     <span class="tag">Governance</span>
                 </div>
             </div>
@@ -211,11 +220,17 @@
                 <div class="company">Southern New Hampshire University</div>
                 <h3>M.S. in Data Analytics</h3>
                 <div class="meta">
-                    <span><i class="far fa-calendar-alt"></i> August 2025 - Expected December 2026</span>
+                    <span><i class="far fa-calendar-alt"></i> Aug 2025 – Expected 2026</span>
                 </div>
                 <ul>
-                    <li>Graduate coursework focused on data mining, predictive modeling, and enterprise data management.</li>
-                    <li>Capstone work centered on building applied analytics solutions for real-world business problems.</li>
+                    <li>
+                        Coursework focused on data mining, predictive analytics, and enterprise data
+                        management.
+                    </li>
+                    <li>
+                        Applying data storytelling and visualization to explain insights to
+                        non-technical stakeholders.
+                    </li>
                 </ul>
             </div>
 
@@ -223,15 +238,21 @@
                 <div class="company">American Military University</div>
                 <h3>B.S. in Information Technology (Full-Stack Programming)</h3>
                 <div class="meta">
-                    <span><i class="far fa-calendar-alt"></i> Expected Graduation: May 2025</span>
+                    <span><i class="far fa-calendar-alt"></i> Expected May 2025</span>
                 </div>
                 <ul>
-                    <li>Concentration in full-stack development with additional coursework in cybersecurity and databases.</li>
-                    <li>Projects include custom web applications, data-driven dashboards, and API integrations.</li>
+                    <li>
+                        Focus on full-stack development, databases, and fundamental cybersecurity
+                        concepts.
+                    </li>
+                    <li>
+                        Built multiple web and data projects: dashboards, tools, and small apps that
+                        solve real problems.
+                    </li>
                 </ul>
             </div>
 
-            <!-- Military Experience -->
+            <!-- Military -->
             <h2 class="section-title">
                 <i class="fas fa-flag-usa"></i>
                 Military Experience
@@ -239,20 +260,29 @@
 
             <div class="experience-item">
                 <div class="company">United States Army</div>
-                <h3>Field Artillery Cannon Crewmember & Section Chief</h3>
+                <h3>Field Artillery Cannon Crewmember & Section Leader</h3>
                 <div class="meta">
                     <span><i class="far fa-calendar-alt"></i> 9 Years of Service</span>
                 </div>
                 <ul>
-                    <li>Led teams in high-pressure, mission-critical environments while maintaining accountability for equipment, personnel, and operations.</li>
-                    <li>Coordinated logistics, training, and daily operations to ensure readiness and compliance with military standards.</li>
-                    <li>Developed strong leadership, communication, and problem-solving skills directly applicable to complex technical environments.</li>
+                    <li>
+                        Led teams in fast-paced, high-stakes environments while managing equipment,
+                        operations, and training.
+                    </li>
+                    <li>
+                        Planned and executed missions with strong attention to detail, logistics,
+                        and safety.
+                    </li>
+                    <li>
+                        Developed leadership, communication, and problem-solving skills directly
+                        transferable to technical work.
+                    </li>
                 </ul>
                 <div class="tags">
                     <span class="tag">Leadership</span>
                     <span class="tag">Team Management</span>
-                    <span class="tag">Operational Planning</span>
-                    <span class="tag">Security</span>
+                    <span class="tag">Operations</span>
+                    <span class="tag">Discipline</span>
                 </div>
             </div>
         </div>
