@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Skills - David Madison</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
     <style>
-        /* Simple, clean skills styling */
         .skills-container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
         }
-        
+
         .skill-category {
             background: var(--card-bg);
             padding: 2.5rem;
@@ -23,24 +26,24 @@
             border-left: 4px solid #667eea;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
-        
+
         /* Dark mode support */
         [data-theme="dark"] .skill-category {
             background: #2d3748;
         }
-        
+
         [data-theme="dark"] .skill-category h3 {
             color: #f9fafb;
         }
-        
+
         [data-theme="dark"] .skill-item {
             background: #1a202c;
         }
-        
+
         [data-theme="dark"] .skill-item span {
             color: #e5e7eb;
         }
-        
+
         .skill-category h3 {
             margin: 0 0 1.5rem 0;
             font-size: 1.4rem;
@@ -53,13 +56,13 @@
         .skill-category h3 i {
             color: #667eea;
         }
-        
+
         .skill-list {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
         }
-        
+
         .skill-item {
             display: flex;
             align-items: center;
@@ -68,22 +71,22 @@
             background: var(--bg-color);
             border-radius: 6px;
         }
-        
+
         .skill-item i {
             color: #667eea;
             font-size: 1.1rem;
         }
-        
+
         .skill-item span {
             color: #374151;
             font-weight: 500;
         }
-        
+
         @media (max-width: 768px) {
             .skill-list {
                 grid-template-columns: 1fr;
             }
-            
+
             .skill-category {
                 padding: 1.75rem;
             }
@@ -94,7 +97,6 @@
     <div class="page-transition"></div>
 
     <div class="bg-pattern"></div>
-    <div id="particles-js" class="particles-container"></div>
 
     <nav class="navbar">
         <div class="nav-content">
@@ -133,7 +135,7 @@
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-calculator"></i>
-                        <span>Statistical Analysis</span>
+                        <span>Basic Statistics</span>
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-briefcase"></i>
@@ -141,14 +143,14 @@
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-bullseye"></i>
-                        <span>KPI Development</span>
+                        <span>KPI & Dashboard Design</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Python for Data Analysis -->
+            <!-- Python for Data -->
             <div class="skill-category">
-                <h3><i class="fab fa-python"></i> Python for Data Analysis</h3>
+                <h3><i class="fab fa-python"></i> Python & Data</h3>
                 <div class="skill-list">
                     <div class="skill-item">
                         <i class="fas fa-code"></i>
@@ -159,7 +161,7 @@
                         <span>Pandas & NumPy</span>
                     </div>
                     <div class="skill-item">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-project-diagram"></i>
                         <span>Data Cleaning & Wrangling</span>
                     </div>
                     <div class="skill-item">
@@ -167,17 +169,17 @@
                         <span>Matplotlib & Seaborn</span>
                     </div>
                     <div class="skill-item">
-                        <i class="fas fa-project-diagram"></i>
-                        <span>ETL Pipelines</span>
+                        <i class="fas fa-robot"></i>
+                        <span>Intro ML & Modeling</span>
                     </div>
                     <div class="skill-item">
-                        <i class="fas fa-robot"></i>
-                        <span>Introductory Machine Learning</span>
+                        <i class="fas fa-terminal"></i>
+                        <span>Automation & Scripts</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Web Development -->
+            <!-- Web Dev -->
             <div class="skill-category">
                 <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
                 <div class="skill-list">
@@ -195,15 +197,15 @@
                     </div>
                     <div class="skill-item">
                         <i class="fab fa-react"></i>
-                        <span>React (Learning / Local Projects)</span>
+                        <span>React (local projects)</span>
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-mobile-alt"></i>
-                        <span>Responsive Design</span>
+                        <span>Responsive Layouts</span>
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-code-branch"></i>
-                        <span>Version Control (Git & GitHub)</span>
+                        <span>Git & GitHub</span>
                     </div>
                 </div>
             </div>
@@ -214,34 +216,34 @@
                 <div class="skill-list">
                     <div class="skill-item">
                         <i class="fas fa-database"></i>
-                        <span>SQL (MySQL)</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-database"></i>
-                        <span>PostgreSQL (Basics)</span>
+                        <span>SQL (MySQL / PostgreSQL basics)</span>
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-cloud"></i>
-                        <span>Firebase (Authentication & Firestore)</span>
+                        <span>Firebase (Auth + Firestore)</span>
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-cloud-download-alt"></i>
                         <span>API Integration</span>
                     </div>
                     <div class="skill-item">
-                        <i class="fas fa-terminal"></i>
-                        <span>Command Line / Shell</span>
+                        <i class="fas fa-file-code"></i>
+                        <span>VS Code & Dev Tools</span>
                     </div>
                     <div class="skill-item">
-                        <i class="fas fa-file-code"></i>
-                        <span>VS Code & Development Tools</span>
+                        <i class="fas fa-key"></i>
+                        <span>Basic Security Concepts</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-network-wired"></i>
+                        <span>Networking Fundamentals</span>
                     </div>
                 </div>
             </div>
 
             <!-- Professional Skills -->
             <div class="skill-category">
-                <h3><i class="fas fa-users"></i> Professional Skills</h3>
+                <h3><i class="fas fa-users"></i> Professional & Soft Skills</h3>
                 <div class="skill-list">
                     <div class="skill-item">
                         <i class="fas fa-user-tie"></i>
@@ -253,5 +255,25 @@
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-chalkboard-teacher"></i>
-                        <span>Technical Presentation</span>
-                    <
+                        <span>Presentations & Training</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-users-cog"></i>
+                        <span>Team Collaboration</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-flag-usa"></i>
+                        <span>Veteran Leadership & Discipline</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Problem-Solving Mindset</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
