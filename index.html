@@ -1,148 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience - David Madison</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>David Madison - Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
     <style>
-        .experience-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        .section-title {
-            font-size: 1.8rem;
-            margin-top: 3rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 3px solid #667eea;
+
+        html,
+        body {
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Dark mode support (aligns with data-theme) */
+        [data-theme="dark"] {
+            background: #1a202c;
+        }
+
+        [data-theme="dark"] .simple-bg {
+            background:
+                radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+        }
+
+        [data-theme="dark"] .tagline {
+            color: var(--text-color);
+        }
+
+        [data-theme="dark"] .subtitle {
+            color: var(--text-color);
+        }
+
+        /* Simple subtle background just for the home page */
+        .simple-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 1;
+            transition: opacity 0.4s ease;
+        }
+
+        .hero {
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            justify-content: center;
+            text-align: center;
+            padding: 0 1.5rem;
+            position: relative;
+            overflow: hidden;
+            background: #f3f4f6;
         }
-        
-        /* Dark mode support */
-        [data-theme="dark"] .section-title {
-            color: #f9fafb;
+
+        [data-theme="dark"] .hero {
+            background: #1a202c;
         }
-        
-        [data-theme="dark"] .experience-item,
-        [data-theme="dark"] .education-item,
-        [data-theme="dark"] .cert-item,
-        [data-theme="dark"] .award-item {
-            background: #2d3748;
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin-top: -3rem;
         }
-        
-        [data-theme="dark"] .experience-item h3,
-        [data-theme="dark"] .education-item h3 {
-            color: #f9fafb;
-        }
-        
-        [data-theme="dark"] .experience-item p,
-        [data-theme="dark"] .education-item p,
-        [data-theme="dark"] .experience-item li,
-        [data-theme="dark"] .education-item li {
-            color: #d1d5db;
-        }
-        
-        [data-theme="dark"] .meta {
-            color: #9ca3af;
-        }
-        
-        .section-title:first-of-type {
-            margin-top: 0;
-        }
-        
-        .section-title i {
-            color: #667eea;
-        }
-        
-        .experience-item,
-        .education-item,
-        .cert-item,
-        .award-item {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .experience-item h3,
-        .education-item h3 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.4rem;
-            color: #1f2937;
-        }
-        
-        .company {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #2563eb;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 0.75rem;
-        }
-        
-        .meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            font-size: 0.95rem;
-            color: #6b7280;
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
             margin-bottom: 1rem;
+            letter-spacing: -0.02em;
         }
-        
-        .meta span {
+
+        .title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        .tagline {
+            font-size: 2.25rem;
+            color: var(--text-color);
+            font-weight: 700;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            border-right: 3px solid #667eea;
+            white-space: nowrap;
+            display: inline-block;
+            margin: 0 auto 2rem auto;
+            animation: typing 3.5s steps(50, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+            from,
+            to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: #667eea;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.05rem;
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.6rem;
+            font-size: 1rem;
         }
-        
-        .meta i {
-            color: #9ca3af;
+
+        .btn-primary {
+            background: #667eea;
+            color: #ffffff;
+            border: 2px solid #667eea;
         }
-        
-        .experience-item ul,
-        .education-item ul {
-            margin: 0 0 0 1.25rem;
+
+        .btn-primary:hover {
+            background: #5568d3;
+            border-color: #5568d3;
+            transform: translateY(-2px);
         }
-        
-        .experience-item li {
-            color: #4b5563;
-            line-height: 1.7;
-            margin-bottom: 0.5rem;
+
+        .btn-secondary {
+            background: #ffffff;
+            color: #374151;
+            border: 2px solid #e5e7eb;
         }
-        
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
+
+        [data-theme="dark"] .btn-secondary {
+            background: #2d3748;
+            color: #d1d5db;
+            border-color: #4a5568;
         }
-        
-        .tag {
-            padding: 0.25rem 0.75rem;
-            border-radius: 999px;
-            background: #eff6ff;
-            color: #1d4ed8;
-            font-size: 0.8rem;
-            font-weight: 500;
+
+        .btn-secondary:hover {
+            border-color: #667eea;
+            color: #667eea;
+            transform: translateY(-2px);
         }
-        
-        [data-theme="dark"] .tag {
-            background: #1e293b;
-            color: #93c5fd;
+
+        .btn i {
+            font-size: 1.1rem;
         }
-        
+
         @media (max-width: 768px) {
-            .experience-item,
-            .education-item {
-                padding: 1.75rem;
+            .hero {
+                padding: 0 1.25rem;
+            }
+
+            .hero-content {
+                margin-top: -2rem;
+            }
+
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.5rem;
+                white-space: normal;
+                border-right: none;
+                animation: none;
+                display: block;
+            }
+
+            .name {
+                font-size: 1.75rem;
+            }
+
+            .subtitle {
+                font-size: 0.95rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -150,17 +245,17 @@
 <body>
     <div class="page-transition"></div>
 
-    <div class="bg-pattern"></div>
-    <div id="particles-js" class="particles-container"></div>
+    <!-- Simple hero background just on home -->
+    <div class="simple-bg"></div>
 
     <nav class="navbar">
         <div class="nav-content">
             <a href="index.html" class="logo">David Madison</a>
             <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="index.html" class="active">Home</a>
                 <a href="projects.html">Projects</a>
                 <a href="skills.html">Skills</a>
-                <a href="experience.html" class="active">Experience</a>
+                <a href="experience.html">Experience</a>
                 <button id="theme-toggle" class="theme-toggle">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -168,92 +263,32 @@
         </div>
     </nav>
 
-    <main class="container">
-        <h1 class="title">Professional Journey</h1>
-
-        <div class="experience-container">
-            <!-- Professional Experience -->
-            <h2 class="section-title">
-                <i class="fas fa-briefcase"></i>
-                Professional Experience
-            </h2>
-
-            <div class="experience-item">
-                <div class="company">ISS STOXX</div>
-                <h3>Vote Execution Jr. Analyst</h3>
-                <div class="meta">
-                    <span><i class="fas fa-map-marker-alt"></i> Norman, OK</span>
-                    <span><i class="far fa-calendar-alt"></i> December 2025 - Present</span>
-                </div>
-                <ul>
-                    <li>Process and validate 1,000+ corporate proxy votes per week while maintaining 100% compliance with client service-level agreements and governance standards.</li>
-                    <li>Audit and reconcile large governance datasets (500K+ records) using Excel and SQL to detect and correct discrepancies, improving data accuracy by 15%+ within the first quarter.</li>
-                    <li>Build and maintain vote-execution tracking dashboards in Excel and Power BI to visualize daily performance metrics, reducing manual reporting time by 35%.</li>
-                    <li>Coordinate with global data, client-service, and operations teams across three time zones to ensure seamless vote submissions ahead of regulatory deadlines.</li>
-                    <li>Research and resolve complex ballot, meeting, and instruction issues raised by clients, ensuring accurate and timely vote execution.</li>
-                </ul>
-                <div class="tags">
-                    <span class="tag">Excel</span>
-                    <span class="tag">SQL</span>
-                    <span class="tag">Power BI</span>
-                    <span class="tag">Data Quality</span>
-                    <span class="tag">Governance</span>
-                </div>
-            </div>
-
-            <!-- Education -->
-            <h2 class="section-title">
-                <i class="fas fa-graduation-cap"></i>
-                Education
-            </h2>
-
-            <div class="education-item">
-                <div class="company">Southern New Hampshire University</div>
-                <h3>M.S. in Data Analytics</h3>
-                <div class="meta">
-                    <span><i class="far fa-calendar-alt"></i> August 2025 - Expected December 2026</span>
-                </div>
-                <ul>
-                    <li>Graduate coursework focused on data mining, predictive modeling, and enterprise data management.</li>
-                    <li>Capstone work centered on building applied analytics solutions for real-world business problems.</li>
-                </ul>
-            </div>
-
-            <div class="education-item">
-                <div class="company">American Military University</div>
-                <h3>B.S. in Information Technology (Full-Stack Programming)</h3>
-                <div class="meta">
-                    <span><i class="far fa-calendar-alt"></i> Expected Graduation: May 2025</span>
-                </div>
-                <ul>
-                    <li>Concentration in full-stack development with additional coursework in cybersecurity and databases.</li>
-                    <li>Projects include custom web applications, data-driven dashboards, and API integrations.</li>
-                </ul>
-            </div>
-
-            <!-- Military Experience -->
-            <h2 class="section-title">
-                <i class="fas fa-flag-usa"></i>
-                Military Experience
-            </h2>
-
-            <div class="experience-item">
-                <div class="company">United States Army</div>
-                <h3>Field Artillery Cannon Crewmember & Section Chief</h3>
-                <div class="meta">
-                    <span><i class="far fa-calendar-alt"></i> 9 Years of Service</span>
-                </div>
-                <ul>
-                    <li>Led teams in high-pressure, mission-critical environments while maintaining accountability for equipment, personnel, and operations.</li>
-                    <li>Coordinated logistics, training, and daily operations to ensure readiness and compliance with military standards.</li>
-                    <li>Developed strong leadership, communication, and problem-solving skills directly applicable to complex technical environments.</li>
-                </ul>
-                <div class="tags">
-                    <span class="tag">Leadership</span>
-                    <span class="tag">Team Management</span>
-                    <span class="tag">Operational Planning</span>
-                    <span class="tag">Security</span>
-                </div>
+    <main class="hero">
+        <div class="hero-content">
+            <p class="name">Hi, I'm David Madison</p>
+            <h1 class="title">Building clear, practical tools from data.</h1>
+            <p class="tagline">I build things that make data easier to understand.</p>
+            <p class="subtitle">
+                Data Analyst & Full-Stack Developer · M.S. Data Analytics · U.S. Army Veteran
+            </p>
+            <div class="cta-buttons">
+                <a
+                    href="https://www.linkedin.com/in/david-madison-68a2b5275"
+                    target="_blank"
+                    class="btn btn-primary"
+                >
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a
+                    href="https://github.com/davidmadison95"
+                    target="_blank"
+                    class="btn btn-secondary"
+                >
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="Resume - David Madison.pdf" download class="btn btn-secondary">
+                    <i class="fas fa-download"></i> Resume
+                </a>
             </div>
         </div>
     </main>
