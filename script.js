@@ -1,221 +1,172 @@
-// Particle.js Configuration
-const particlesConfig = {
-    particles: {
-        number: {
-            value: 80,
-            density: {
-                enable: true,
-                value_area: 800
-            }
-        },
-        color: {
-            value: "#2563eb"
-        },
-        shape: {
-            type: "circle"
-        },
-        opacity: {
-            value: 0.5,
-            random: false
-        },
-        size: {
-            value: 3,
-            random: true
-        },
-        line_linked: {
-            enable: true,
-            distance: 150,
-            color: "#2563eb",
-            opacity: 0.4,
-            width: 1
-        },
-        move: {
-            enable: true,
-            speed: 6,
-            direction: "none",
-            random: false,
-            straight: false,
-            out_mode: "out",
-            bounce: false
-        }
-    },
-    interactivity: {
-        detect_on: "canvas",
-        events: {
-            onhover: {
-                enable: true,
-                mode: "repulse"
-            },
-            onclick: {
-                enable: true,
-                mode: "push"
-            },
-            resize: true
-        }
-    },
-    retina_detect: true
-};
-
-// Initialize Particle.js
-if (document.getElementById('particles-js')) {
-    particlesJS('particles-js', particlesConfig);
-}
-
-// Theme Management
+// THEME MANAGEMENT
 const ThemeManager = {
     init() {
-        this.themeToggle = document.getElementById('theme-toggle');
+        this.themeToggle = document.getElementById("theme-toggle");
+        if (!this.themeToggle) return;
+
         this.setInitialTheme();
         this.bindEvents();
     },
 
     setInitialTheme() {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const savedTheme = localStorage.getItem('theme');
-        
-        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-            document.body.setAttribute('data-theme', 'dark');
-            this.themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        }
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const savedTheme = localStorage.getItem("theme");
+
+        const useDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+        const newTheme = useDark ? "dark" : "light";
+
+        document.body.setAttribute("data-theme", newTheme);
+        this.themeToggle.innerHTML =
+            newTheme === "dark"
+                ? '<i class="fas fa-sun"></i>'
+                : '<i class="fas fa-moon"></i>';
     },
 
     bindEvents() {
-        this.themeToggle.addEventListener('click', () => {
-            const isDark = document.body.getAttribute('data-theme') === 'dark';
-            document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-            localStorage.setItem('theme', isDark ? 'light' : 'dark');
-            this.themeToggle.innerHTML = isDark ? 
-                '<i class="fas fa-moon"></i>' : 
-                '<i class="fas fa-sun"></i>';
+        this.themeToggle.addEventListener("click", () => {
+            const isDark = document.body.getAttribute("data-theme") === "dark";
+            const newTheme = isDark ? "light" : "dark";
+
+            document.body.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+            this.themeToggle.innerHTML =
+                newTheme === "dark"
+                    ? '<i class="fas fa-sun"></i>'
+                    : '<i class="fas fa-moon"></i>';
         });
-    }
+    },
 };
 
-// Page Transitions
+// PAGE TRANSITIONS (purple slide screen)
 const PageTransitions = {
     init() {
-        this.transitionElement = document.querySelector('.page-transition');
+        this.transitionElement = document.querySelector(".page-transition");
+        if (!this.transitionElement) return;
+
         this.bindEvents();
     },
 
     bindEvents() {
-        document.querySelectorAll('a').forEach(link => {
+        document.querySelectorAll("a").forEach((link) => {
+            // Same host, no target="_blank"
             if (link.hostname === window.location.hostname) {
-                link.addEventListener('click', (e) => {
-                    if (!link.hasAttribute('target')) {
-                        e.preventDefault();
-                        const target = link.href;
-                        this.transitionTo(target);
-                    }
+                link.addEventListener("click", (e) => {
+                    if (link.hasAttribute("target")) return;
+
+                    const href = link.getAttribute("href");
+                    if (!href || href.startsWith("#")) return;
+
+                    e.preventDefault();
+                    this.transitionTo(link.href);
                 });
             }
         });
     },
 
     transitionTo(target) {
-        this.transitionElement.style.transform = 'translateY(0)';
+        this.transitionElement.style.transform = "translateY(0)";
         setTimeout(() => {
             window.location.href = target;
         }, 500);
-    }
+    },
 };
 
-// Resume Modal
+// Stubbed Resume Modal (safe even if not used)
 const ResumeModal = {
     init() {
-        this.modal = document.getElementById('resumeModal');
-        this.openBtn = document.getElementById('resumeBtn');
-        this.closeBtn = document.querySelector('.close-modal');
-        this.downloadBtns = document.querySelectorAll('.btn-download');
-        
-        if (this.modal) {
-            this.bindEvents();
-            this.loadStats();
-        }
+        this.modal = document.getElementById("resumeModal");
+        this.openBtn = document.getElementById("resumeBtn");
+        this.closeBtn = document.querySelector(".close-modal");
+        this.downloadBtns = document.querySelectorAll(".btn-download");
+
+        if (!this.modal) return;
+
+        this.bindEvents();
+        this.loadStats();
     },
 
     bindEvents() {
-        // Open modal
         if (this.openBtn) {
-            this.openBtn.addEventListener('click', () => this.open());
+            this.openBtn.addEventListener("click", () => this.open());
         }
 
-        // Close modal
         if (this.closeBtn) {
-            this.closeBtn.addEventListener('click', () => this.close());
+            this.closeBtn.addEventListener("click", () => this.close());
         }
 
-        // Close on outside click
-        this.modal.addEventListener('click', (e) => {
-            if (e.target === this.modal) {
-                this.close();
-            }
-        });
-
-        // Track downloads
-        this.downloadBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
+        this.downloadBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
                 const format = btn.dataset.format;
                 this.handleDownload(btn, format);
             });
         });
 
-        // Handle escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && this.modal.classList.contains('active')) {
+        this.modal.addEventListener("click", (e) => {
+            if (e.target === this.modal) this.close();
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && this.modal.classList.contains("active")) {
                 this.close();
             }
         });
     },
 
     open() {
-        this.modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        this.modal.classList.add("active");
+        document.body.style.overflow = "hidden";
     },
 
     close() {
-        this.modal.classList.remove('active');
-        document.body.style.overflow = '';
+        this.modal.classList.remove("active");
+        document.body.style.overflow = "";
     },
 
     handleDownload(btn, format) {
-        // Add downloading animation
-        btn.classList.add('downloading');
-        
-        // Update stats
+        btn.classList.add("downloading");
+
         const stats = this.getStats();
         stats.total++;
         stats[format] = (stats[format] || 0) + 1;
         stats.lastDownload = new Date().toISOString();
-        localStorage.setItem('resume_stats', JSON.stringify(stats));
-        
-        // Update UI
+        localStorage.setItem("resume_stats", JSON.stringify(stats));
+
         this.updateStats();
-        
-        // Remove animation after delay
+
         setTimeout(() => {
-            btn.classList.remove('downloading');
-        }, 2000);
+            btn.classList.remove("downloading");
+        }, 1000);
     },
 
     getStats() {
-        return JSON.parse(localStorage.getItem('resume_stats') || '{"total":0}');
+        const stats = localStorage.getItem("resume_stats");
+        if (stats) return JSON.parse(stats);
+
+        return {
+            total: 0,
+            pdf: 0,
+            docx: 0,
+            lastDownload: null,
+        };
     },
 
     loadStats() {
-        const stats = this.getStats();
-        this.updateStats(stats);
+        this.updateStats();
     },
 
     updateStats() {
         const stats = this.getStats();
-        const totalElement = document.getElementById('totalDownloads');
-        const lastDownloadElement = document.getElementById('lastDownload');
-        
+        const totalElement = document.getElementById("resumeDownloadCount");
+        const lastDownloadElement = document.getElementById("resumeLastDownload");
+
         if (totalElement) {
-            this.animateNumber(totalElement, parseInt(totalElement.textContent), stats.total);
+            this.animateNumber(
+                totalElement,
+                parseInt(totalElement.textContent || "0", 10),
+                stats.total
+            );
         }
-        
+
         if (lastDownloadElement && stats.lastDownload) {
             const date = new Date(stats.lastDownload);
             lastDownloadElement.textContent = date.toLocaleDateString();
@@ -224,9 +175,9 @@ const ResumeModal = {
 
     animateNumber(element, start, end) {
         const duration = 1000;
-        const step = Math.ceil((end - start) / (duration / 50));
+        const step = Math.ceil((end - start) / (duration / 50)) || 1;
         let current = start;
-        
+
         const timer = setInterval(() => {
             current += step;
             if (current >= end) {
@@ -235,48 +186,54 @@ const ResumeModal = {
             }
             element.textContent = current;
         }, 50);
-    }
+    },
 };
 
-// Skill Animations
+// Skill Animations (only if you add .skill-progress later)
 const SkillAnimations = {
     init() {
-        this.skillBars = document.querySelectorAll('.skill-progress');
+        this.skillBars = document.querySelectorAll(".skill-progress");
+        if (!this.skillBars.length) return;
+
         this.observeSkills();
     },
 
     observeSkills() {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.transform = 'translateX(0)';
-                }
-            });
-        }, { threshold: 0.5 });
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const bar = entry.target;
+                        const value = bar.dataset.value;
+                        bar.style.width = value + "%";
+                        observer.unobserve(bar);
+                    }
+                });
+            },
+            { threshold: 0.3 }
+        );
 
-        this.skillBars.forEach(bar => observer.observe(bar));
-    }
+        this.skillBars.forEach((bar) => observer.observe(bar));
+    },
 };
 
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     ThemeManager.init();
     PageTransitions.init();
     ResumeModal.init();
     SkillAnimations.init();
 
-    // Initialize typewriter effect if element exists
-    const typewriterElement = document.querySelector('.typewriter');
+    // Optional typewriter support if you ever add .typewriter somewhere
+    const typewriterElement = document.querySelector(".typewriter");
     if (typewriterElement) {
         const text = typewriterElement.dataset.text;
         let i = 0;
-        function type() {
+        (function type() {
             if (i < text.length) {
                 typewriterElement.textContent += text.charAt(i);
                 i++;
                 setTimeout(type, 100);
             }
-        }
-        type();
+        })();
     }
 });
