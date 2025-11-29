@@ -37,40 +37,6 @@ const ThemeManager = {
     },
 };
 
-// PAGE TRANSITIONS (purple slide screen)
-const PageTransitions = {
-    init() {
-        this.transitionElement = document.querySelector(".page-transition");
-        if (!this.transitionElement) return;
-
-        this.bindEvents();
-    },
-
-    bindEvents() {
-        document.querySelectorAll("a").forEach((link) => {
-            // Same host, no target="_blank"
-            if (link.hostname === window.location.hostname) {
-                link.addEventListener("click", (e) => {
-                    if (link.hasAttribute("target")) return;
-
-                    const href = link.getAttribute("href");
-                    if (!href || href.startsWith("#")) return;
-
-                    e.preventDefault();
-                    this.transitionTo(link.href);
-                });
-            }
-        });
-    },
-
-    transitionTo(target) {
-        this.transitionElement.style.transform = "translateY(0)";
-        setTimeout(() => {
-            window.location.href = target;
-        }, 500);
-    },
-};
-
 // Stubbed Resume Modal (safe even if not used)
 const ResumeModal = {
     init() {
@@ -189,7 +155,7 @@ const ResumeModal = {
     },
 };
 
-// Skill Animations (only if you add .skill-progress later)
+// Skill Animations (for future .skill-progress bars)
 const SkillAnimations = {
     init() {
         this.skillBars = document.querySelectorAll(".skill-progress");
@@ -219,7 +185,6 @@ const SkillAnimations = {
 
 document.addEventListener("DOMContentLoaded", () => {
     ThemeManager.init();
-    PageTransitions.init();
     ResumeModal.init();
     SkillAnimations.init();
 
