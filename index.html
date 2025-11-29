@@ -20,6 +20,25 @@
             overflow-x: hidden;
         }
         
+        /* Dark mode support */
+        body.dark-mode {
+            background: #1a202c;
+        }
+        
+        body.dark-mode .simple-bg {
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+        }
+        
+        body.dark-mode .tagline {
+            color: #f9fafb;
+        }
+        
+        body.dark-mode .subtitle {
+            color: #d1d5db;
+        }
+        
         /* Simple subtle background */
         .simple-bg {
             position: fixed;
