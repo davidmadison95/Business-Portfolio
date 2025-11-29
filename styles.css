@@ -60,9 +60,8 @@ body {
         transparent 51%
     );
     background-size: 30px 30px;
-    opacity: 0.1;
+    opacity: 0.08;
     z-index: -2;
-    animation: patternMove 20s linear infinite;
 }
 
 /* Navigation */
@@ -193,26 +192,6 @@ body {
     border-color: var(--primary-color);
     color: var(--primary-color);
     transform: translateY(-1px);
-}
-
-/* Page Transition */
-.page-transition {
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(135deg, #2563eb, #7c3aed);
-    transform: translateY(100%);
-    transition: transform 0.5s ease;
-    z-index: 999;
-}
-
-/* Simple animation */
-@keyframes patternMove {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-30px);
-    }
 }
 
 /* Responsive */
