@@ -14,29 +14,28 @@
             box-sizing: border-box;
         }
         
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: white;
+        html, body {
+            height: 100%;
             overflow-x: hidden;
         }
         
-        /* Dark mode support */
-        body.dark-mode {
+        /* Dark mode support (aligns with data-theme) */
+        [data-theme="dark"] {
             background: #1a202c;
         }
         
-        body.dark-mode .simple-bg {
+        [data-theme="dark"] .simple-bg {
             background: 
                 radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 50%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
         }
         
-        body.dark-mode .tagline {
-            color: #f9fafb;
+        [data-theme="dark"] .tagline {
+            color: var(--text-color);
         }
         
-        body.dark-mode .subtitle {
-            color: #d1d5db;
+        [data-theme="dark"] .subtitle {
+            color: var(--text-color);
         }
         
         /* Simple subtle background */
@@ -49,20 +48,25 @@
             background: 
                 radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
                 radial-gradient(circle at 80% 50%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
+            pointer-events: none;
             z-index: -1;
+            opacity: 1;
+            transition: opacity 0.4s ease;
         }
         
-        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            text-align: center;
+            padding: 0 1.5rem;
             position: relative;
+            overflow: hidden;
+            background: #f3f4f6;
         }
         
-        body.dark-mode .hero {
+        [data-theme="dark"] .hero {
             background: #1a202c;
         }
         
@@ -75,7 +79,7 @@
         .name {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #000000;
+            color: var(--text-color);
             margin-bottom: 1rem;
             letter-spacing: -0.02em;
         }
@@ -83,7 +87,7 @@
         .title {
             font-size: 4.5rem;
             font-weight: 800;
-            color: #000000;
+            color: var(--text-color);
             margin-bottom: 1.5rem;
             letter-spacing: -0.03em;
             line-height: 1.1;
@@ -91,7 +95,7 @@
         
         .tagline {
             font-size: 2.25rem;
-            color: #1f2937;
+            color: var(--text-color);
             font-weight: 700;
             line-height: 1.8;
             margin-bottom: 2rem;
@@ -134,7 +138,7 @@
         
         .subtitle {
             font-size: 1.05rem;
-            color: #6b7280;
+            color: var(--text-color);
             line-height: 1.8;
             margin-bottom: 3rem;
         }
@@ -176,7 +180,7 @@
             border: 2px solid #e5e7eb;
         }
         
-        body.dark-mode .btn-secondary {
+        [data-theme="dark"] .btn-secondary {
             background: #2d3748;
             color: #d1d5db;
             border-color: #4a5568;
@@ -188,18 +192,39 @@
             transform: translateY(-2px);
         }
         
-        body.dark-mode .btn-secondary:hover {
-            background: #667eea;
-            color: white;
+        .btn i {
+            font-size: 1.1rem;
+        }
+        
+        /* Page transition overlay */
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transform: translateY(100%);
+            z-index: 1000;
+            pointer-events: none;
+            transition: transform 0.5s ease;
         }
         
         @media (max-width: 768px) {
+            .hero {
+                padding: 0 1.25rem;
+            }
+            
             .hero-content {
                 margin-top: -2rem;
             }
             
+            .title {
+                font-size: 2.5rem;
+            }
+            
             .tagline {
-                font-size: 1.65rem;
+                font-size: 1.5rem;
                 white-space: normal;
                 border-right: none;
                 animation: none;
@@ -208,10 +233,6 @@
             
             .name {
                 font-size: 1.75rem;
-            }
-            
-            .title {
-                font-size: 2.5rem;
             }
             
             .subtitle {
@@ -255,7 +276,7 @@
             <p class="tagline">I build things that make data easier to understand.</p>
             <p class="subtitle">Data Analyst & Full-Stack Developer | M.S. Data Analytics | U.S. Army Veteran</p>
             <div class="cta-buttons">
-                <a href="https://www.linkedin.com/in/davidmadison95" target="_blank" class="btn btn-primary">
+                <a href="https://www.linkedin.com/in/david-madison-68a2b5275" target="_blank" class="btn btn-primary">
                     <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
                 <a href="https://github.com/davidmadison95" target="_blank" class="btn btn-secondary">
