@@ -1,148 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - David Madison</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
     <style>
+        /* Simple, clean project styling */
         .projects-container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
         }
-
+        
         .project-item {
-            background: var(--card-bg);
+            background: white;
             padding: 2.5rem;
             margin-bottom: 2rem;
             border-radius: 8px;
             border-left: 4px solid #667eea;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
-
+        
         /* Dark mode support */
-        [data-theme="dark"] .project-item {
+        body.dark-mode .project-item {
             background: #2d3748;
         }
-
-        [data-theme="dark"] .project-item h3 {
+        
+        body.dark-mode .project-item h3 {
             color: #f9fafb;
         }
-
-        [data-theme="dark"] .project-item p,
-        [data-theme="dark"] .project-item li {
+        
+        body.dark-mode .project-item p,
+        body.dark-mode .project-item li {
             color: #d1d5db;
         }
-
+        
         .project-item h3 {
-            margin: 0 0 1rem 0;
-            font-size: 1.6rem;
+            margin: 0 0 0.75rem 0;
+            font-size: 1.5rem;
             color: #1f2937;
         }
-
+        
         .project-item p {
-            margin-bottom: 1.5rem;
             color: #4b5563;
             line-height: 1.7;
+            margin-bottom: 1.5rem;
         }
-
+        
         .project-item h4 {
             font-size: 1rem;
+            color: #667eea;
+            margin: 1.5rem 0 0.75rem 0;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #6b7280;
-            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+            font-size: 0.9rem;
         }
-
+        
         .project-item ul {
-            margin: 0 0 1.5rem 1.25rem;
+            margin: 0 0 1.5rem 0;
+            padding-left: 1.25rem;
         }
-
+        
         .project-item li {
             color: #4b5563;
             line-height: 1.7;
             margin-bottom: 0.5rem;
         }
-
+        
         .tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
             margin-bottom: 1rem;
         }
-
+        
         .tag {
-            padding: 0.25rem 0.75rem;
-            border-radius: 999px;
+            padding: 0.4rem 0.85rem;
             background: #eff6ff;
-            color: #1d4ed8;
-            font-size: 0.8rem;
+            color: #1e40af;
+            border-radius: 4px;
+            font-size: 0.85rem;
             font-weight: 500;
         }
-
-        [data-theme="dark"] .tag {
-            background: #1e293b;
-            color: #93c5fd;
-        }
-
+        
         .project-links {
             display: flex;
+            gap: 1rem;
             flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 1rem;
         }
-
-        .project-links a {
+        
+        .btn {
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
-            padding: 0.5rem 1rem;
-            border-radius: 999px;
-            border: 1px solid #d1d5db;
-            font-size: 0.85rem;
-            text-decoration: none;
-            color: #374151;
-        }
-
-        .project-links a i {
+            gap: 0.5rem;
             font-size: 0.9rem;
         }
-
-        .project-links a:hover {
-            border-color: #2563eb;
-            color: #2563eb;
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
         }
-
-        [data-theme="dark"] .project-links a {
-            border-color: #4b5563;
-            color: #e5e7eb;
+        
+        .btn-primary:hover {
+            background: #5568d3;
         }
-
-        [data-theme="dark"] .project-links a:hover {
-            border-color: #60a5fa;
-            color: #bfdbfe;
+        
+        .btn-secondary {
+            background: white;
+            color: #374151;
+            border: 1px solid #d1d5db;
         }
-
+        
+        .btn-secondary:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+        
         @media (max-width: 768px) {
             .project-item {
-                padding: 1.75rem;
+                padding: 1.5rem;
             }
-
-            .project-item h3 {
-                font-size: 1.3rem;
+            
+            .projects-container {
+                padding: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="bg-pattern"></div>
+    <div class="page-transition"></div>
+    <div class="background-pattern"></div>
 
     <nav class="navbar">
         <div class="nav-content">
@@ -161,111 +156,214 @@
 
     <main class="container">
         <h1 class="title">Featured Projects</h1>
-        <p class="subtitle">
-            A selection of projects that blend data analysis, problem-solving, and clean, practical
-            UI.
-        </p>
 
         <div class="projects-container">
-            <!-- Credit Risk Scoring ML System -->
+            <!-- Credit Risk Scoring -->
             <div class="project-item">
                 <h3>Credit Risk Scoring ML System</h3>
-                <p>
-                    A machine learning system that predicts loan default risk and classifies
-                    borrowers into risk tiers. The project covers the full pipeline from data
-                    cleaning and feature engineering to model training, evaluation, and deployment
-                    with explainable AI.
-                </p>
-
+                <p>A complete machine learning system that predicts loan default risk and classifies borrowers into risk tiers. I built the entire pipeline from data preprocessing through cloud deployment, achieving 87% F1 score and 92% ROC-AUC using XGBoost. The system includes transparent AI with SHAP explainability and an interactive dashboard.</p>
+                
                 <h4>Key Features</h4>
                 <ul>
-                    <li>Built a full ETL and feature engineering pipeline for lending data.</li>
-                    <li>Trained and tuned multiple models (including XGBoost) to compare performance.</li>
-                    <li>
-                        Used SHAP-based explainability to make predictions transparent and easier to
-                        trust.
-                    </li>
-                    <li>Designed a simple interface for scenario testing and risk inspection.</li>
+                    <li>Achieved 87% F1 Score and 92% ROC-AUC with XGBoost, providing reliable predictions for loan default risk</li>
+                    <li>Deployed to Streamlit Cloud with automated CI/CD pipeline directly from GitHub</li>
+                    <li>Integrated SHAP explainability to make AI decisions transparent and interpretable for regulatory compliance</li>
+                    <li>Built comprehensive ETL pipeline with feature engineering that creates over 20 predictive features from raw loan data</li>
+                    <li>Trained and compared three different models with hyperparameter tuning to find the best performer</li>
+                    <li>Created an interactive dashboard for real-time risk assessment with visual explanations</li>
                 </ul>
+                
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">XGBoost</span>
+                    <span class="tag">SHAP</span>
+                    <span class="tag">Streamlit</span>
+                    <span class="tag">scikit-learn</span>
+                </div>
+                
+                <div class="project-links">
+                    <a href="https://davidmadison-credit-risk.streamlit.app" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                    <a href="https://github.com/davidmadison95/credit-risk-model" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> Source Code
+                    </a>
+                </div>
+            </div>
 
+            <!-- AVOXI Billing Analysis -->
+            <div class="project-item">
+                <h3>AVOXI Telecommunications Billing Analysis</h3>
+                <p>I analyzed three months of telecommunications billing data covering $84K in revenue to find margin inefficiencies and develop pricing recommendations. Through analysis across 53 clients, 8 countries, and 5 vendors, I identified opportunities to improve gross margin from 39.6% to 46.4%, which translates to roughly $157K in potential annual profit improvement.</p>
+                
+                <h4>Business Impact</h4>
+                <ul>
+                    <li>Improved profit margins by 6.8 percentage points through vendor routing optimization and strategic pricing adjustments</li>
+                    <li>Identified $157K in annual profit opportunities across the client base and geographic markets</li>
+                    <li>Analyzed profitability across multiple dimensions including clients, countries, carriers, and billing methods</li>
+                    <li>Created executive-ready visualizations and scenario modeling to support pricing strategy decisions</li>
+                    <li>Evaluated vendor efficiency to inform future contract negotiations and routing decisions</li>
+                </ul>
+                
                 <div class="tags">
                     <span class="tag">Python</span>
                     <span class="tag">Pandas</span>
-                    <span class="tag">Scikit-learn</span>
-                    <span class="tag">Machine Learning</span>
-                    <span class="tag">SHAP</span>
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">Financial Analytics</span>
+                    <span class="tag">Excel</span>
                 </div>
-
+                
                 <div class="project-links">
-                    <a
-                        href="https://github.com/davidmadison95/Credit-Risk-Scoring-ML-System"
-                        target="_blank"
-                    >
-                        <i class="fab fa-github"></i> View Code
+                    <a href="https://github.com/davidmadison95/avoxi-billing-analysis" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- Financial Forecasting Dashboard -->
+            <div class="project-item">
+                <h3>Financial Performance & Forecasting Dashboard</h3>
+                <p>An interactive financial analytics system that monitors business health, analyzes historical trends, and generates 12-month revenue and expense forecasts. The dashboard processes 58 months of financial data to provide strategic insights for business planning and decision-making.</p>
+                
+                <h4>Key Capabilities</h4>
+                <ul>
+                    <li>Achieved 3.6% forecasting accuracy (MAPE) on 12-month revenue and expense predictions</li>
+                    <li>Real-time KPI monitoring for revenue, expenses, profit margins, and growth rates</li>
+                    <li>Automated anomaly detection to flag unusual profit fluctuations that need investigation</li>
+                    <li>Interactive dashboards with dynamic filtering and professional visualizations</li>
+                    <li>Automated business insights generation with actionable recommendations for leadership</li>
+                </ul>
+                
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Streamlit</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">Forecasting</span>
+                    <span class="tag">Business Intelligence</span>
+                </div>
+                
+                <div class="project-links">
+                    <a href="https://github.com/davidmadison95/financial-forecasting-dashboard" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- Financial Fraud Detection -->
+            <div class="project-item">
+                <h3>Financial Fraud Detection System</h3>
+                <p>A fraud detection system designed to identify suspicious financial transactions while providing transparent, explainable results for compliance and investigation teams. The system handles highly imbalanced datasets typical in real-world scenarios where fraudulent transactions represent less than 2% of total volume.</p>
+                
+                <h4>Key Capabilities</h4>
+                <ul>
+                    <li>Achieved over 95% detection accuracy for identifying fraudulent transactions in imbalanced datasets</li>
+                    <li>Uses SHAP analysis to explain which factors contributed to each fraud detection</li>
+                    <li>Interactive dashboard for fraud analysts to review flagged transactions and adjust risk thresholds</li>
+                    <li>Real-time scoring API with sub-second response time for transaction monitoring</li>
+                    <li>Production-ready deployment with Docker containerization</li>
+                </ul>
+                
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Fraud Analytics</span>
+                    <span class="tag">Streamlit</span>
+                    <span class="tag">Docker</span>
+                </div>
+                
+                <div class="project-links">
+                    <a href="https://github.com/davidmadison95/fraud-detection-xai" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- OpsIntel360 -->
+            <div class="project-item">
+                <h3>OpsIntel360 - Enterprise Business Analytics Platform</h3>
+                <p>A business intelligence platform that provides actionable insights across Finance, Sales, Operations, HR, and IT departments. The system combines forecasting, anomaly detection, and automated recommendations into an interactive dashboard designed for real-world business applications.</p>
+                
+                <h4>Key Capabilities</h4>
+                <ul>
+                    <li>Multi-department analytics supporting Finance, Sales, Operations, HR, and IT metrics</li>
+                    <li>Configurable forecasting with 3 to 12 month prediction horizons for strategic planning</li>
+                    <li>Automated anomaly detection with contextual explanations and severity classification</li>
+                    <li>Real-time KPI dashboards tracking revenue, expenses, margins, and operational metrics</li>
+                    <li>Full ETL pipeline with database integration for production deployment</li>
+                </ul>
+                
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Business Intelligence</span>
+                    <span class="tag">Streamlit</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Docker</span>
+                </div>
+                
+                <div class="project-links">
+                    <a href="https://github.com/davidmadison95/OpsIntel360" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> Source Code
                     </a>
                 </div>
             </div>
 
             <!-- SmartResumeTool -->
             <div class="project-item">
-                <h3>SmartResumeTool</h3>
-                <p>
-                    A resume analysis tool that compares a resume against a job description and
-                    highlights missing skills, keywords, and alignment gaps. It’s built to help
-                    users quickly see how well they match a role and where to adjust their resume.
-                </p>
-
+                <h3>SmartResumeTool Web Application</h3>
+                <p>An AI-powered resume analysis tool that helps job seekers optimize their applications. Users upload resumes and job descriptions to receive instant feedback on keyword match, ATS compatibility, and specific recommendations for improvement.</p>
+                
                 <h4>Key Features</h4>
                 <ul>
-                    <li>Uploads and parses both resume and job description content.</li>
-                    <li>Identifies missing or low-frequency keywords and skills.</li>
-                    <li>
-                        Gives a simple alignment score and suggestions in plain language, not just
-                        raw numbers.
-                    </li>
-                    <li>Designed with a clean, distraction-free layout focused on usability.</li>
+                    <li>AI-driven resume analysis that compares content against job descriptions</li>
+                    <li>PDF and DOCX file processing with content extraction</li>
+                    <li>Interactive scoring visualizations showing match strength and gaps</li>
+                    <li>ATS compatibility assessment with specific optimization suggestions</li>
+                    <li>Real-time keyword analysis identifying missing critical skills</li>
                 </ul>
-
+                
                 <div class="tags">
-                    <span class="tag">HTML</span>
-                    <span class="tag">CSS</span>
                     <span class="tag">JavaScript</span>
-                    <span class="tag">ATS</span>
+                    <span class="tag">HTML5</span>
+                    <span class="tag">Tailwind CSS</span>
+                    <span class="tag">Chart.js</span>
                 </div>
-
+                
                 <div class="project-links">
-                    <a href="https://github.com/davidmadison95/SmartResumeTool" target="_blank">
-                        <i class="fab fa-github"></i> View Code
+                    <a href="https://davidmadison95.github.io/smart-resume-tool/" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                    <a href="https://github.com/davidmadison95/smart-resume-tool" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> Source Code
                     </a>
                 </div>
             </div>
 
-            <!-- Personal Finance & Analytics Dashboard -->
+            <!-- EventFlow Calendar -->
             <div class="project-item">
-                <h3>Personal Finance & Analytics Dashboard</h3>
-                <p>
-                    A personal finance dashboard that helps track income, expenses, and savings
-                    goals while giving a visual view of where money is going over time. Focused on
-                    clarity and real-life use rather than flashy design.
-                </p>
-
+                <h3>EventFlow Calendar Application</h3>
+                <p>A modern React + Vite calendar and event management app with drag-and-drop scheduling, weather-aware planning, and a sleek responsive UI. Designed for users who want fast navigation, rich event controls, and a smooth experience on any device.</p>
+                
                 <h4>Key Features</h4>
                 <ul>
-                    <li>Log income, recurring bills, and everyday expenses.</li>
-                    <li>View spending by category and month at a glance.</li>
-                    <li>Track progress toward savings goals.</li>
-                    <li>Export data for further analysis or budgeting.</li>
+                    <li>Drag-and-drop event scheduling with color-coded categories and tags</li>
+                    <li>Recurring events to organize work, personal tasks, and reminders</li>
+                    <li>Integrated weather forecasts to plan events around local conditions</li>
+                    <li>Dark/light theme and mobile-first responsive layout</li>
                 </ul>
-
+                
                 <div class="tags">
-                    <span class="tag">React (local)</span>
-                    <span class="tag">Data Visualization</span>
-                    <span class="tag">Personal Finance</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Vite</span>
+                    <span class="tag">Tailwind CSS</span>
+                    <span class="tag">JavaScript</span>
                 </div>
-
+                
                 <div class="project-links">
-                    <a href="https://github.com/davidmadison95" target="_blank">
-                        <i class="fab fa-github"></i> GitHub Profile
+                    <a href="https://davidmadison95.github.io/eventflow-calendar/" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                    <a href="https://github.com/davidmadison95/eventflow-calendar" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> Source Code
                     </a>
                 </div>
             </div>
