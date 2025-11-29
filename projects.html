@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects - David Madison</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
     <style>
         .projects-container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
         }
-        
+
         .project-item {
             background: var(--card-bg);
             padding: 2.5rem;
@@ -22,33 +26,33 @@
             border-left: 4px solid #667eea;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
-        
+
         /* Dark mode support */
         [data-theme="dark"] .project-item {
             background: #2d3748;
         }
-        
+
         [data-theme="dark"] .project-item h3 {
             color: #f9fafb;
         }
-        
+
         [data-theme="dark"] .project-item p,
         [data-theme="dark"] .project-item li {
             color: #d1d5db;
         }
-        
+
         .project-item h3 {
             margin: 0 0 1rem 0;
             font-size: 1.6rem;
             color: #1f2937;
         }
-        
+
         .project-item p {
             margin-bottom: 1.5rem;
             color: #4b5563;
             line-height: 1.7;
         }
-        
+
         .project-item h4 {
             font-size: 1rem;
             text-transform: uppercase;
@@ -56,24 +60,24 @@
             color: #6b7280;
             margin-bottom: 0.5rem;
         }
-        
+
         .project-item ul {
             margin: 0 0 1.5rem 1.25rem;
         }
-        
+
         .project-item li {
             color: #4b5563;
             line-height: 1.7;
             margin-bottom: 0.5rem;
         }
-        
+
         .tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
             margin-bottom: 1rem;
         }
-        
+
         .tag {
             padding: 0.25rem 0.75rem;
             border-radius: 999px;
@@ -82,19 +86,19 @@
             font-size: 0.8rem;
             font-weight: 500;
         }
-        
+
         [data-theme="dark"] .tag {
             background: #1e293b;
             color: #93c5fd;
         }
-        
+
         .project-links {
             display: flex;
             flex-wrap: wrap;
             gap: 0.75rem;
             margin-top: 1rem;
         }
-        
+
         .project-links a {
             display: inline-flex;
             align-items: center;
@@ -106,31 +110,31 @@
             text-decoration: none;
             color: #374151;
         }
-        
+
         .project-links a i {
             font-size: 0.9rem;
         }
-        
+
         .project-links a:hover {
             border-color: #2563eb;
             color: #2563eb;
         }
-        
+
         [data-theme="dark"] .project-links a {
             border-color: #4b5563;
             color: #e5e7eb;
         }
-        
+
         [data-theme="dark"] .project-links a:hover {
             border-color: #60a5fa;
             color: #bfdbfe;
         }
-        
+
         @media (max-width: 768px) {
             .project-item {
                 padding: 1.75rem;
             }
-            
+
             .project-item h3 {
                 font-size: 1.3rem;
             }
@@ -141,7 +145,6 @@
     <div class="page-transition"></div>
 
     <div class="bg-pattern"></div>
-    <div id="particles-js" class="particles-container"></div>
 
     <nav class="navbar">
         <div class="nav-content">
@@ -160,39 +163,47 @@
 
     <main class="container">
         <h1 class="title">Featured Projects</h1>
-        <p class="subtitle">A selection of end-to-end projects that combine data analysis, machine learning, and full-stack development.</p>
+        <p class="subtitle">
+            A selection of projects that blend data analysis, problem-solving, and clean, practical
+            UI.
+        </p>
 
         <div class="projects-container">
             <!-- Credit Risk Scoring ML System -->
             <div class="project-item">
                 <h3>Credit Risk Scoring ML System</h3>
-                <p>A complete machine learning system that predicts loan default risk and classifies borrowers into risk tiers. I built the entire pipeline from data preprocessing through cloud deployment, achieving 87% F1 score and 92% ROC-AUC using XGBoost. The system includes transparent AI with SHAP explainability and an interactive dashboard.</p>
-                
+                <p>
+                    A machine learning system that predicts loan default risk and classifies
+                    borrowers into risk tiers. The project covers the full pipeline from data
+                    cleaning and feature engineering to model training, evaluation, and deployment
+                    with explainable AI.
+                </p>
+
                 <h4>Key Features</h4>
                 <ul>
-                    <li>Achieved 87% F1 Score and 92% ROC-AUC with XGBoost, providing reliable predictions for loan default risk</li>
-                    <li>Deployed to Streamlit Cloud with automated CI/CD pipeline directly from GitHub</li>
-                    <li>Integrated SHAP explainability to make AI decisions transparent and interpretable for regulatory compliance</li>
-                    <li>Built comprehensive ETL pipeline with feature engineering that creates over 20 predictive features from raw loan data</li>
-                    <li>Trained and compared three different models with hyperparameter tuning to find the best performer</li>
-                    <li>Created an interactive dashboard for real-time risk assessment with visual explanations</li>
+                    <li>Built a full ETL and feature engineering pipeline for lending data.</li>
+                    <li>Trained and tuned multiple models (including XGBoost) to compare performance.</li>
+                    <li>
+                        Used SHAP-based explainability to make predictions transparent and easier to
+                        trust.
+                    </li>
+                    <li>Designed a simple interface for scenario testing and risk inspection.</li>
                 </ul>
 
                 <div class="tags">
                     <span class="tag">Python</span>
-                    <span class="tag">Machine Learning</span>
-                    <span class="tag">XGBoost</span>
-                    <span class="tag">SHAP</span>
-                    <span class="tag">Streamlit</span>
+                    <span class="tag">Pandas</span>
                     <span class="tag">Scikit-learn</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">SHAP</span>
                 </div>
 
                 <div class="project-links">
-                    <a href="https://github.com/davidmadison95/Credit-Risk-Scoring-ML-System" target="_blank">
+                    <a
+                        href="https://github.com/davidmadison95/Credit-Risk-Scoring-ML-System"
+                        target="_blank"
+                    >
                         <i class="fab fa-github"></i> View Code
-                    </a>
-                    <a href="https://credit-risk-scoring-ml-system.streamlit.app/" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Live Demo
                     </a>
                 </div>
             </div>
@@ -200,21 +211,28 @@
             <!-- SmartResumeTool -->
             <div class="project-item">
                 <h3>SmartResumeTool</h3>
-                <p>An AI-augmented resume analysis tool that helps job seekers tailor their resumes to specific job descriptions. The app compares resume content with job postings, identifies missing keywords, and provides targeted suggestions to improve ATS scores and alignment with role requirements.</p>
+                <p>
+                    A resume analysis tool that compares a resume against a job description and
+                    highlights missing skills, keywords, and alignment gaps. It’s built to help
+                    users quickly see how well they match a role and where to adjust their resume.
+                </p>
 
                 <h4>Key Features</h4>
                 <ul>
-                    <li>Upload resume and job description for side-by-side analysis</li>
-                    <li>Automatically extracts and highlights missing keywords and critical skills</li>
-                    <li>Estimates ATS compatibility and flags potential issues in formatting or content</li>
-                    <li>Built as a responsive web app with modern UI for a clean, focused user experience</li>
+                    <li>Uploads and parses both resume and job description content.</li>
+                    <li>Identifies missing or low-frequency keywords and skills.</li>
+                    <li>
+                        Gives a simple alignment score and suggestions in plain language, not just
+                        raw numbers.
+                    </li>
+                    <li>Designed with a clean, distraction-free layout focused on usability.</li>
                 </ul>
 
                 <div class="tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
                     <span class="tag">JavaScript</span>
-                    <span class="tag">HTML/CSS</span>
-                    <span class="tag">ATS Optimization</span>
-                    <span class="tag">Career Tools</span>
+                    <span class="tag">ATS</span>
                 </div>
 
                 <div class="project-links">
@@ -227,18 +245,22 @@
             <!-- Personal Finance & Analytics Dashboard -->
             <div class="project-item">
                 <h3>Personal Finance & Analytics Dashboard</h3>
-                <p>A personal finance tracker that allows users to log income, expenses, and savings goals while visualizing their financial health over time. The app emphasizes clarity and usability, helping users quickly see where their money is going.</p>
+                <p>
+                    A personal finance dashboard that helps track income, expenses, and savings
+                    goals while giving a visual view of where money is going over time. Focused on
+                    clarity and real-life use rather than flashy design.
+                </p>
 
                 <h4>Key Features</h4>
                 <ul>
-                    <li>Track income, expenses, and savings goals in one place</li>
-                    <li>Visualize monthly spending and category breakdowns</li>
-                    <li>Export data for budgeting or further analysis</li>
-                    <li>Designed with a simple, clean interface that keeps the focus on insights</li>
+                    <li>Log income, recurring bills, and everyday expenses.</li>
+                    <li>View spending by category and month at a glance.</li>
+                    <li>Track progress toward savings goals.</li>
+                    <li>Export data for further analysis or budgeting.</li>
                 </ul>
 
                 <div class="tags">
-                    <span class="tag">React (local project)</span>
+                    <span class="tag">React (local)</span>
                     <span class="tag">Data Visualization</span>
                     <span class="tag">Personal Finance</span>
                 </div>
