@@ -1,106 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>David Madison - Portfolio</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        html,
+        
         body {
-            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: white;
             overflow-x: hidden;
         }
-
-        /* Dark mode support (aligns with data-theme) */
-        [data-theme="dark"] {
+        
+        /* Dark mode support */
+        body.dark-mode {
             background: #1a202c;
         }
-
-        [data-theme="dark"] .simple-bg {
-            background:
+        
+        body.dark-mode .simple-bg {
+            background: 
                 radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 50%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
         }
-
-        [data-theme="dark"] .tagline {
-            color: var(--text-color);
+        
+        body.dark-mode .tagline {
+            color: #f9fafb;
         }
-
-        [data-theme="dark"] .subtitle {
-            color: var(--text-color);
+        
+        body.dark-mode .subtitle {
+            color: #d1d5db;
         }
-
-        /* Simple subtle background just for the home page */
+        
+        /* Simple subtle background */
         .simple-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background:
+            background: 
                 radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
                 radial-gradient(circle at 80% 50%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
-            pointer-events: none;
             z-index: -1;
-            opacity: 1;
-            transition: opacity 0.4s ease;
         }
-
+        
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            padding: 0 1.5rem;
+            padding: 2rem;
             position: relative;
-            overflow: hidden;
-            background: #f3f4f6;
         }
-
-        [data-theme="dark"] .hero {
+        
+        body.dark-mode .hero {
             background: #1a202c;
         }
-
+        
         .hero-content {
             text-align: center;
             max-width: 800px;
             margin-top: -3rem;
         }
-
+        
         .name {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--text-color);
+            color: #000000;
             margin-bottom: 1rem;
             letter-spacing: -0.02em;
         }
-
+        
         .title {
             font-size: 4.5rem;
             font-weight: 800;
-            color: var(--text-color);
+            color: #000000;
             margin-bottom: 1.5rem;
             letter-spacing: -0.03em;
             line-height: 1.1;
         }
-
+        
         .tagline {
             font-size: 2.25rem;
-            color: var(--text-color);
+            color: #1f2937;
             font-weight: 700;
             line-height: 1.8;
             margin-bottom: 2rem;
@@ -111,7 +102,7 @@
             margin: 0 auto 2rem auto;
             animation: typing 3.5s steps(50, end), blink-caret 0.75s step-end infinite;
         }
-
+        
         @keyframes typing {
             from {
                 width: 0;
@@ -120,31 +111,41 @@
                 width: 100%;
             }
         }
-
+        
         @keyframes blink-caret {
-            from,
-            to {
+            from, to {
                 border-color: transparent;
             }
             50% {
                 border-color: #667eea;
             }
         }
-
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
         .subtitle {
             font-size: 1.05rem;
-            color: var(--text-color);
+            color: #6b7280;
             line-height: 1.8;
             margin-bottom: 3rem;
         }
-
+        
         .cta-buttons {
             display: flex;
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
         }
-
+        
         .btn {
             padding: 1rem 2.5rem;
             border-radius: 8px;
@@ -156,74 +157,71 @@
             gap: 0.6rem;
             font-size: 1rem;
         }
-
+        
         .btn-primary {
             background: #667eea;
-            color: #ffffff;
+            color: white;
             border: 2px solid #667eea;
         }
-
+        
         .btn-primary:hover {
             background: #5568d3;
             border-color: #5568d3;
             transform: translateY(-2px);
         }
-
+        
         .btn-secondary {
-            background: #ffffff;
+            background: white;
             color: #374151;
             border: 2px solid #e5e7eb;
         }
-
-        [data-theme="dark"] .btn-secondary {
+        
+        body.dark-mode .btn-secondary {
             background: #2d3748;
             color: #d1d5db;
             border-color: #4a5568;
         }
-
+        
         .btn-secondary:hover {
             border-color: #667eea;
             color: #667eea;
             transform: translateY(-2px);
         }
-
-        .btn i {
-            font-size: 1.1rem;
+        
+        body.dark-mode .btn-secondary:hover {
+            background: #667eea;
+            color: white;
         }
-
+        
         @media (max-width: 768px) {
-            .hero {
-                padding: 0 1.25rem;
-            }
-
             .hero-content {
                 margin-top: -2rem;
             }
-
-            .title {
-                font-size: 2.5rem;
-            }
-
+            
             .tagline {
-                font-size: 1.5rem;
+                font-size: 1.65rem;
                 white-space: normal;
                 border-right: none;
                 animation: none;
                 display: block;
             }
-
+            
             .name {
                 font-size: 1.75rem;
             }
-
+            
+            .title {
+                font-size: 2.5rem;
+            }
+            
             .subtitle {
                 font-size: 0.95rem;
             }
-
+            
             .cta-buttons {
                 flex-direction: column;
             }
-
+            
             .btn {
                 width: 100%;
                 justify-content: center;
@@ -232,9 +230,11 @@
     </style>
 </head>
 <body>
-    <!-- Simple hero background just on home -->
+    <div class="page-transition"></div>
+    
+    <!-- Simple Background -->
     <div class="simple-bg"></div>
-
+    
     <nav class="navbar">
         <div class="nav-content">
             <a href="index.html" class="logo">David Madison</a>
@@ -249,28 +249,16 @@
             </div>
         </div>
     </nav>
-
+    
     <main class="hero">
         <div class="hero-content">
-            <p class="name">Hi, I'm David Madison</p>
-            <h1 class="title">Building clear, practical tools from data.</h1>
             <p class="tagline">I build things that make data easier to understand.</p>
-            <p class="subtitle">
-                Data Analyst & Full-Stack Developer · M.S. Data Analytics · U.S. Army Veteran
-            </p>
+            <p class="subtitle">Data Analyst & Full-Stack Developer | M.S. Data Analytics | U.S. Army Veteran</p>
             <div class="cta-buttons">
-                <a
-                    href="https://www.linkedin.com/in/david-madison-68a2b5275"
-                    target="_blank"
-                    class="btn btn-primary"
-                >
+                <a href="https://www.linkedin.com/in/davidmadison95" target="_blank" class="btn btn-primary">
                     <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
-                <a
-                    href="https://github.com/davidmadison95"
-                    target="_blank"
-                    class="btn btn-secondary"
-                >
+                <a href="https://github.com/davidmadison95" target="_blank" class="btn btn-secondary">
                     <i class="fab fa-github"></i> GitHub
                 </a>
                 <a href="Resume - David Madison.pdf" download class="btn btn-secondary">
@@ -279,7 +267,7 @@
             </div>
         </div>
     </main>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
